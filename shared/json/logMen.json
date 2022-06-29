@@ -1,0 +1,218 @@
+[
+  {
+    "logMen": "0M",
+    "lMSign": "Tiger",
+    "lMWood": "Fire",
+    "lMFire": "Earth",
+    "lMEarth": "Metal",
+    "lMMetal": "Water",
+    "lMWater": "Wood"
+  },
+  {
+    "logMen": "1M",
+    "lMSign": "Rabbit",
+    "lMWood": "Fire",
+    "lMFire": "Earth",
+    "lMEarth": "Metal",
+    "lMMetal": "Water",
+    "lMWater": "Wood"
+  },
+  {
+    "logMen": "2M",
+    "lMSign": "Dragon",
+    "lMWood": "Earth",
+    "lMFire": "Metal",
+    "lMEarth": "Water",
+    "lMMetal": "Wood",
+    "lMWater": "Fire"
+  },
+  {
+    "logMen": "3M",
+    "lMSign": "Snake",
+    "lMWood": "Earth",
+    "lMFire": "Metal",
+    "lMEarth": "Water",
+    "lMMetal": "Wood",
+    "lMWater": "Fire"
+  },
+  {
+    "logMen": "4M",
+    "lMSign": "Horse",
+    "lMWood": "Metal",
+    "lMFire": "Water",
+    "lMEarth": "Wood",
+    "lMMetal": "Fire",
+    "lMWater": "Earth"
+  },
+  {
+    "logMen": "5M",
+    "lMSign": "Sheep",
+    "lMWood": "Metal",
+    "lMFire": "Water",
+    "lMEarth": "Wood",
+    "lMMetal": "Fire",
+    "lMWater": "Earth"
+  },
+  {
+    "logMen": "6M",
+    "lMSign": "Monkey",
+    "lMWood": "Water",
+    "lMFire": "Wood",
+    "lMEarth": "Fire",
+    "lMMetal": "Earth",
+    "lMWater": "Metal"
+  },
+  {
+    "logMen": "7M",
+    "lMSign": "Bird",
+    "lMWood": "Water",
+    "lMFire": "Wood",
+    "lMEarth": "Fire",
+    "lMMetal": "Earth",
+    "lMWater": "Metal"
+  },
+  {
+    "logMen": "8M",
+    "lMSign": "Dog",
+    "lMWood": "Wood",
+    "lMFire": "Fire",
+    "lMEarth": "Earth",
+    "lMMetal": "Metal",
+    "lMWater": "Water"
+  },
+  {
+    "logMen": "9M",
+    "lMSign": "Pig",
+    "lMWood": "Wood",
+    "lMFire": "Fire",
+    "lMEarth": "Earth",
+    "lMMetal": "Metal",
+    "lMWater": "Water"
+  },
+  {
+    "logMen": "10M",
+    "lMSign": "Mouse",
+    "lMWood": "",
+    "lMFire": "",
+    "lMEarth": "",
+    "lMMetal": "",
+    "lMWater": ""
+  },
+  {
+    "logMen": "11M",
+    "lMSign": "Cow",
+    "lMWood": "",
+    "lMFire": "",
+    "lMEarth": "",
+    "lMMetal": "",
+    "lMWater": ""
+  },
+  {
+    "logMen": "0F",
+    "lMSign": "Monkey",
+    "lMWood": "Water",
+    "lMFire": "Wood",
+    "lMEarth": "Fire",
+    "lMMetal": "Earth",
+    "lMWater": "Metal"
+  },
+  {
+    "logMen": "1F",
+    "lMSign": "Sheep",
+    "lMWood": "Water",
+    "lMFire": "Wood",
+    "lMEarth": "Fire",
+    "lMMetal": "Earth",
+    "lMWater": "Metal"
+  },
+  {
+    "logMen": "2F",
+    "lMSign": "Horse",
+    "lMWood": "Metal",
+    "lMFire": "Water",
+    "lMEarth": "Wood",
+    "lMMetal": "Fire",
+    "lMWater": "Earth"
+  },
+  {
+    "logMen": "3F",
+    "lMSign": "Snake",
+    "lMWood": "Metal",
+    "lMFire": "Water",
+    "lMEarth": "Wood",
+    "lMMetal": "Fire",
+    "lMWater": "Earth"
+  },
+  {
+    "logMen": "4F",
+    "lMSign": "Dragon",
+    "lMWood": "Earth",
+    "lMFire": "Metal",
+    "lMEarth": "Water",
+    "lMMetal": "Wood",
+    "lMWater": "Fire"
+  },
+  {
+    "logMen": "5F",
+    "lMSign": "Rabbit",
+    "lMWood": "Earth",
+    "lMFire": "Metal",
+    "lMEarth": "Water",
+    "lMMetal": "Wood",
+    "lMWater": "Fire"
+  },
+  {
+    "logMen": "6F",
+    "lMSign": "Tiger",
+    "lMWood": "Fire",
+    "lMFire": "Earth",
+    "lMEarth": "Metal",
+    "lMMetal": "Water",
+    "lMWater": "Wood"
+  },
+  {
+    "logMen": "7F",
+    "lMSign": "Cow",
+    "lMWood": "Fire",
+    "lMFire": "Earth",
+    "lMEarth": "Metal",
+    "lMMetal": "Water",
+    "lMWater": "Wood"
+  },
+  {
+    "logMen": "8F",
+    "lMSign": "Mouse",
+    "lMWood": "Wood",
+    "lMFire": "Fire",
+    "lMEarth": "Earth",
+    "lMMetal": "Metal",
+    "lMWater": "Water"
+  },
+  {
+    "logMen": "9F",
+    "lMSign": "Pig",
+    "lMWood": "Wood",
+    "lMFire": "Fire",
+    "lMEarth": "Earth",
+    "lMMetal": "Metal",
+    "lMWater": "Water"
+  },
+  {
+    "logMen": "10F",
+    "lMSign": "Dog",
+    "lMWood": "",
+    "lMFire": "",
+    "lMEarth": "",
+    "lMMetal": "",
+    "lMWater": ""
+  },
+  {
+    "logMen": "11F",
+    "lMSign": "Bird",
+    "lMWood": "",
+    "lMFire": "",
+    "lMEarth": "",
+    "lMMetal": "",
+    "lMWater": ""
+  }
+]
