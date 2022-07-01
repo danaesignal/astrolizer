@@ -2,15 +2,15 @@ import type { NextPage } from "next";
 import styles from "../shared/styles/styles.module.css";
 import { Navbar } from "../components/Navbar";
 
-const Home: NextPage = () => {
+const Natal: NextPage = () => {
   return (
     <div className={styles.container}>
       <header>
         <Navbar />
       </header>
-      Yo.
+      <main>{/* Content goes here */}</main>
     </div>
   );
 };
 
-export default Home;
+export default Natal;

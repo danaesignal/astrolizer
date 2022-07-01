@@ -1,1 +1,146 @@
-[{"dargudAnimals":"Rabbit","wood":"8","fire":"5","earth":"11","metal":"2","water":"11","dargudCount":"1","dargud":"Fertilization","dargudDrel":"ox","dargudInterp":"Exhausting fortune"},{"dargudAnimals":"Dragon","wood":"9","fire":"6","earth":"12","metal":"3","water":"12","dargudCount":"2","dargud":"Conception","dargudDrel":"ox","dargudInterp":"Ill fortune"},{"dargudAnimals":"Snake","wood":"10","fire":"7","earth":"1","metal":"4","water":"1","dargudCount":"3","dargud":"Development","dargudDrel":"o","dargudInterp":"Establishing happiness"},{"dargudAnimals":"Horse","wood":"11","fire":"8","earth":"2","metal":"5","water":"2","dargudCount":"4","dargud":"Birth","dargudDrel":"o","dargudInterp":"Refreshment and enjoyment"},{"dargudAnimals":"Sheep","wood":"12","fire":"9","earth":"3","metal":"6","water":"3","dargudCount":"5","dargud":"Washing","dargudDrel":"oo","dargudInterp":"Accomplishing thoughts"},{"dargudAnimals":"Monkey","wood":"1","fire":"10","earth":"4","metal":"7","water":"4","dargudCount":"6","dargud":"Wearing Clothes","dargudDrel":"oo","dargudInterp":"Nourishing capabilities"},{"dargudAnimals":"Bird","wood":"2","fire":"11","earth":"5","metal":"8","water":"5","dargudCount":"7","dargud":"Doing Work","dargudDrel":"ooo","dargudInterp":"Long lineage"},{"dargudAnimals":"Dog","wood":"3","fire":"12","earth":"6","metal":"9","water":"6","dargudCount":"8","dargud":"Young Adulthood","dargudDrel":"ooo","dargudInterp":"Gaining wealth"},{"dargudAnimals":"Pig","wood":"4","fire":"1","earth":"7","metal":"10","water":"7","dargudCount":"9","dargud":"Aging","dargudDrel":"x","dargudInterp":"Divorce"},{"dargudAnimals":"Mouse","wood":"5","fire":"2","earth":"8","metal":"11","water":"8","dargudCount":"10","dargud":"Sickness","dargudDrel":"x","dargudInterp":"Lawsuit or Accusation"},{"dargudAnimals":"Cow","wood":"6","fire":"3","earth":"9","metal":"12","water":"9","dargudCount":"11","dargud":"Death","dargudDrel":"xx","dargudInterp":"Loss of prosperity"},{"dargudAnimals":"Tiger","wood":"7","fire":"4","earth":"10","metal":"1","water":"10","dargudCount":"12","dargud":"Burial","dargudDrel":"xx","dargudInterp":"Cutting of lineage"}]
+[
+  {
+    "dargudAnimals": "Rabbit",
+    "wood": "8",
+    "fire": "5",
+    "earth": "11",
+    "metal": "2",
+    "water": "11",
+    "dargudCount": "1",
+    "dargud": "Fertilization",
+    "dargudDrel": "ox",
+    "dargudInterp": "Exhausting fortune"
+  },
+  {
+    "dargudAnimals": "Dragon",
+    "wood": "9",
+    "fire": "6",
+    "earth": "12",
+    "metal": "3",
+    "water": "12",
+    "dargudCount": "2",
+    "dargud": "Conception",
+    "dargudDrel": "ox",
+    "dargudInterp": "Ill fortune"
+  },
+  {
+    "dargudAnimals": "Snake",
+    "wood": "10",
+    "fire": "7",
+    "earth": "1",
+    "metal": "4",
+    "water": "1",
+    "dargudCount": "3",
+    "dargud": "Development",
+    "dargudDrel": "o",
+    "dargudInterp": "Establishing happiness"
+  },
+  {
+    "dargudAnimals": "Horse",
+    "wood": "11",
+    "fire": "8",
+    "earth": "2",
+    "metal": "5",
+    "water": "2",
+    "dargudCount": "4",
+    "dargud": "Birth",
+    "dargudDrel": "o",
+    "dargudInterp": "Refreshment and enjoyment"
+  },
+  {
+    "dargudAnimals": "Sheep",
+    "wood": "12",
+    "fire": "9",
+    "earth": "3",
+    "metal": "6",
+    "water": "3",
+    "dargudCount": "5",
+    "dargud": "Washing",
+    "dargudDrel": "oo",
+    "dargudInterp": "Accomplishing thoughts"
+  },
+  {
+    "dargudAnimals": "Monkey",
+    "wood": "1",
+    "fire": "10",
+    "earth": "4",
+    "metal": "7",
+    "water": "4",
+    "dargudCount": "6",
+    "dargud": "Wearing Clothes",
+    "dargudDrel": "oo",
+    "dargudInterp": "Nourishing capabilities"
+  },
+  {
+    "dargudAnimals": "Bird",
+    "wood": "2",
+    "fire": "11",
+    "earth": "5",
+    "metal": "8",
+    "water": "5",
+    "dargudCount": "7",
+    "dargud": "Doing Work",
+    "dargudDrel": "ooo",
+    "dargudInterp": "Long lineage"
+  },
+  {
+    "dargudAnimals": "Dog",
+    "wood": "3",
+    "fire": "12",
+    "earth": "6",
+    "metal": "9",
+    "water": "6",
+    "dargudCount": "8",
+    "dargud": "Young Adulthood",
+    "dargudDrel": "ooo",
+    "dargudInterp": "Gaining wealth"
+  },
+  {
+    "dargudAnimals": "Pig",
+    "wood": "4",
+    "fire": "1",
+    "earth": "7",
+    "metal": "10",
+    "water": "7",
+    "dargudCount": "9",
+    "dargud": "Aging",
+    "dargudDrel": "x",
+    "dargudInterp": "Divorce"
+  },
+  {
+    "dargudAnimals": "Mouse",
+    "wood": "5",
+    "fire": "2",
+    "earth": "8",
+    "metal": "11",
+    "water": "8",
+    "dargudCount": "10",
+    "dargud": "Sickness",
+    "dargudDrel": "x",
+    "dargudInterp": "Lawsuit or Accusation"
+  },
+  {
+    "dargudAnimals": "Cow",
+    "wood": "6",
+    "fire": "3",
+    "earth": "9",
+    "metal": "12",
+    "water": "9",
+    "dargudCount": "11",
+    "dargud": "Death",
+    "dargudDrel": "xx",
+    "dargudInterp": "Loss of prosperity"
+  },
+  {
+    "dargudAnimals": "Tiger",
+    "wood": "7",
+    "fire": "4",
+    "earth": "10",
+    "metal": "1",
+    "water": "10",
+    "dargudCount": "12",
+    "dargud": "Burial",
+    "dargudDrel": "xx",
+    "dargudInterp": "Cutting of lineage"
+  }
+]

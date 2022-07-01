@@ -1,1 +1,11 @@
-[{"count":"1","kye-Parkha":"Kham","element":"Water"},{"count":"2","kye-Parkha":"Khen","element":"Earth"},{"count":"3","kye-Parkha":"Dwa","element":"Metal"},{"count":"4","kye-Parkha":"Khon","element":"Earth"},{"count":"5","kye-Parkha":"Li","element":"Fire"},{"count":"6","kye-Parkha":"Zon","element":"Earth"},{"count":"7","kye-Parkha":"Zin","element":"Wood"},{"count":"8","kye-Parkha":"Gin","element":"Earth"},{"count":"0","kye-Parkha":"Kham","element":"Water"}]
+[
+  { "count": "1", "kye-Parkha": "Kham", "element": "Water" },
+  { "count": "2", "kye-Parkha": "Khen", "element": "Earth" },
+  { "count": "3", "kye-Parkha": "Dwa", "element": "Metal" },
+  { "count": "4", "kye-Parkha": "Khon", "element": "Earth" },
+  { "count": "5", "kye-Parkha": "Li", "element": "Fire" },
+  { "count": "6", "kye-Parkha": "Zon", "element": "Earth" },
+  { "count": "7", "kye-Parkha": "Zin", "element": "Wood" },
+  { "count": "8", "kye-Parkha": "Gin", "element": "Earth" },
+  { "count": "0", "kye-Parkha": "Kham", "element": "Water" }
+]
