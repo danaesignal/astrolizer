@@ -7,7 +7,7 @@ export class Dataset<T extends { [key: string]: string }> {
       errorMessage: "Record not found. Please check request.",
       request,
     };
-    const result: T | undefined = this.dataset.find((record: T) => {
+    const result: T | undefined = this.data.find((record: T) => {
       return record[request.range] === request.query;
     });
 
@@ -16,9 +16,5 @@ export class Dataset<T extends { [key: string]: string }> {
     } else {
       return preparedError;
     }
-  }
-
-  get dataset(): T[] {
-    return this.data;
   }
 }
