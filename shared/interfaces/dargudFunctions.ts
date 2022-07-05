@@ -1,4 +1,4 @@
-export interface dargudFunctions {
+export type dargudFunctions = {
   dargudAnimals: string;
   wood: string;
   fire: string;
@@ -9,4 +9,4 @@ export interface dargudFunctions {
   dargud: string;
   dargudDrel: string;
   dargudInterp: string;
-}
+};

@@ -1,4 +1,4 @@
-export interface yearsElements {
+export type yearsElements = {
   elem: string;
   sign: string;
   combined: string;
@@ -11,4 +11,4 @@ export interface yearsElements {
   goodDay: string;
   worstDay: string;
   interp: string;
-}
+};

@@ -1,4 +1,4 @@
-export interface rawRecord {
+export type rawRecord = {
   dayDate: string;
   yearCount: string;
   yearElement: string;
@@ -27,7 +27,7 @@ export interface rawRecord {
   name2: string;
   monthCount: string;
   monthName: string;
-  monthType: string;
+  monthtype: string;
   monthElement: string;
   monthGender: string;
   monthSign: string;
@@ -38,7 +38,7 @@ export interface rawRecord {
   rilCha: string;
   name3: string;
   dayCount: string;
-  dayType: string;
+  daytype: string;
   dayOfWeek: string;
   lunarMansion: string;
   lunarMansionS: string;
@@ -73,4 +73,4 @@ export interface rawRecord {
   dayBreak: string;
   genDayFactor1: string;
   genDayFactor2: string;
-}
+};

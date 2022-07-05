@@ -1,4 +1,4 @@
-export interface gektsi2020 {
+export type gektsi2020 = {
   westernYear: string;
   gender: string;
   yearGen: string;
@@ -37,4 +37,4 @@ export interface gektsi2020 {
   pwangrdel: string;
   plungrdel: string;
   yearSpecial: string;
-}
+};

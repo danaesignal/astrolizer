@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import Raw from "../../shared/json/raw.json";
-import * as interfaces from "../../shared/json/interfaces";
+import Raw from "../../shared/data/json/raw.json";
+import * as interfaces from "../../shared/interfaces";
 
 const rawArray: interfaces.rawRecord[] = Raw as interfaces.rawRecord[];
 const record: interfaces.rawRecord | undefined = rawArray.find((ele) => {

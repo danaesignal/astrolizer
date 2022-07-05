@@ -1,4 +1,4 @@
-export interface dayCombinations {
+export type dayCombinations = {
   dayCombinations: string;
   text: string;
-}
+};

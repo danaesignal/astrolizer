@@ -1,4 +1,4 @@
-export interface logMen {
+export type logMen = {
   logMen: string;
   lMSign: string;
   lMWood: string;
@@ -6,4 +6,4 @@ export interface logMen {
   lMEarth: string;
   lMMetal: string;
   lMWater: string;
-}
+};

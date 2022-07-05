@@ -9,7 +9,7 @@ export * from "./lunarDays";
 export * from "./lunarMansions";
 export * from "./mewas";
 export * from "./parkhaDirections";
-export * from "./rawRecord";
+export * from "./dates";
 export * from "./relationships";
 export * from "./signElementArray";
 export * from "./yearsElements";

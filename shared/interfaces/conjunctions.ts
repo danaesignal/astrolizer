@@ -1,4 +1,4 @@
-export interface conjunctions {
+export type conjunctions = {
   sunday: string;
   monday: string;
   tuesday: string;
@@ -8,4 +8,4 @@ export interface conjunctions {
   saturday: string;
   conjunction: string;
   meanings: string;
-}
+};

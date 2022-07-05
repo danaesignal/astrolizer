@@ -1,4 +1,4 @@
-export interface parkhaDirections {
+export type parkhaDirections = {
   parkha: string;
   direction: string;
-}
+};

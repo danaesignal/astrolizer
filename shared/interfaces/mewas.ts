@@ -1,4 +1,4 @@
-export interface mewas {
+export type mewas = {
   mewa: string;
   c: string;
   e: string;
@@ -11,4 +11,4 @@ export interface mewas {
   nE: string;
   element: string;
   mewaInterpretation: string;
-}
+};
