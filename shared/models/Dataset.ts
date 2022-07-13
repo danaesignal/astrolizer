@@ -1,20 +1,12 @@
-import { searchRequest, searchError } from "../interfaces/";
+import { searchRequest } from "../interfaces/";
 export class Dataset<T extends { [key: string]: string }> {
   constructor(private data: T[]) {}
 
-  search(request: searchRequest): T | searchError {
-    const preparedError: searchError = {
-      errorMessage: "Record not found. Please check request.",
-      request,
-    };
+  search(request: searchRequest): T | undefined {
     const result: T | undefined = this.data.find((record: T) => {
       return record[request.range] === request.query;
     });
 
-    if (result) {
-      return result;
-    } else {
-      return preparedError;
-    }
+    return result;
   }
 }

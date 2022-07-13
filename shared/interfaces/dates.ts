@@ -1,4 +1,4 @@
-export type rawRecord = {
+export type datesRecord = {
   dayDate: string;
   yearCount: string;
   yearElement: string;

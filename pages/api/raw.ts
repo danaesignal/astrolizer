@@ -1,17 +1,18 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import Raw from "../../shared/data/json/raw.json";
-import * as interfaces from "../../shared/interfaces";
+import { ObsApp, ObsAppRequest } from "../../shared/tools/buildReport/obsApp";
 
-const rawArray: interfaces.rawRecord[] = Raw as interfaces.rawRecord[];
-const record: interfaces.rawRecord | undefined = rawArray.find((ele) => {
-  return ele.dayDate === "19841108";
-});
+const reportRequest: ObsAppRequest = {
+  calcDate: 20220708,
+  dateOfBirth: 19841108,
+  gender: "male",
+  motherYearOfBirth: 1955,
+  timeOfBirth: 1700,
+};
+
+const report = new ObsApp(reportRequest);
+const reportJSON = report.buildReport();
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (record) {
-    res.status(200).send(record.yearCount);
-  } else {
-    res.status(404).send("Record not found.");
-  }
+  res.status(200).send(reportJSON);
 }
