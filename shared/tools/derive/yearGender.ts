@@ -3,12 +3,12 @@ import { cache, year } from ".";
 
 export function yearGender(key: string, cache: cache) {
   const yearResult = year(key, cache);
-  const record = cache[`${yearResult}_${yearGender.name}`]
-    ? cache[`${yearResult}_${yearGender.name}`]
-    : data.yearsElements.search({ query: key, range: "combined" });
+  const record = cache[`${key}_yearsElements_combined`]
+    ? cache[`${key}_yearsElements_combined`]
+    : data.yearsElements.search({ query: yearResult, range: "combined" });
 
   if (record) {
-    cache[`${yearResult}_${yearGender.name}`] = record;
+    cache[`${key}_yearsElements_combined`] = record;
     return record.yearGender;
   } else {
     throw new Error(

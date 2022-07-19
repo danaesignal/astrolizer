@@ -3,12 +3,12 @@ import { cache } from ".";
 
 export function yearBapPar(key: string, cache: cache): string {
   const bapParKey = (parseInt(key.slice(0, 4)) % 8).toString();
-  const record = cache[`${key}_${yearBapPar.name}`]
-    ? cache[`${key}_${yearBapPar.name}`]
+  const record = cache[`${key}_birthParkha_count`]
+    ? cache[`${key}_birthParkha_count`]
     : data.birthParkha.search({ query: bapParKey, range: "count" });
 
   if (record) {
-    cache[`${key}_${yearBapPar.name}`] = record;
+    cache[`${key}_birthParkha_count`] = record;
     return record["kye-Parkha"];
   } else {
     throw new Error(

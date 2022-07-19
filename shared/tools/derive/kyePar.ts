@@ -3,12 +3,12 @@ import { cache } from ".";
 
 export function kyePar(key: string, cache: cache): string {
   const kyeParKey = parseInt(key) % 8;
-  const record = cache[`${key}_${kyePar.name}`]
-    ? cache[`${key}_${kyePar.name}`]
+  const record = cache[`${key}_birthParkha_count`]
+    ? cache[`${key}_birthParkha_count`]
     : data.birthParkha.search({ query: kyeParKey.toString(), range: "count" });
 
   if (record) {
-    cache[`${key}_${kyePar.name}`] = record;
+    cache[`${key}_birthParkha_count`] = record;
     return record["kye-Parkha"];
   } else {
     throw new Error(

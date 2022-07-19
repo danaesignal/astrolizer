@@ -1,14 +1,14 @@
 import * as data from "../../data";
 import { cache } from ".";
 
-export function year(key: string, cache: cache) {
+export function yearLung(key: string, cache: cache) {
   const record = cache[`${key}_dates_dayDate`]
-    ? cache[`${key}_dates_dayDate`]
+    ? cache[`${key}_dates_yearLung`]
     : data.dates.search({ query: key, range: "dayDate" });
 
   if (record) {
     cache[`${key}_dates_dayDate`] = record;
-    return `${record.yearElement} ${record.yearSign}`;
+    return `${record.yearLung}`;
   } else {
     throw new Error(
       "Lookup failed. This should not happen, please contact support."

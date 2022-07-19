@@ -8,10 +8,11 @@ const reportRequest: ObsAppRequest = {
   gender: "male",
   motherYearOfBirth: 1955,
   timeOfBirth: 1700,
+  calcTime: 1900,
 };
 
 const report = new ObsApp(reportRequest);
-const reportJSON = report.buildReport();
+const reportJSON = report.generateReport();
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   res.status(200).send(reportJSON);

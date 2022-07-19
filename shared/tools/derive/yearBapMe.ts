@@ -13,12 +13,12 @@ export function yearBapMe(
   const bapMeCount = (parseInt(age) % 9).toString();
   const bapMeDirection = yearBapMeDirection(gender, bapMeCount);
 
-  const record = cache[`${key}_${yearBapMe.name}`]
-    ? cache[`${key}_${yearBapMe.name}`]
+  const record = cache[`${key}_mewas_mewa`]
+    ? cache[`${key}_mewas_mewa`]
     : data.mewas.search({ query: bapMeKey, range: "mewa" });
 
   if (record) {
-    cache[`${key}_${yearBapMe.name}`] = record;
+    cache[`${key}_mewas_mewa`] = record;
     return record[bapMeDirection];
   } else {
     throw new Error(

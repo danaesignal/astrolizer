@@ -2,13 +2,13 @@ import * as data from "../../data";
 import { cache } from ".";
 
 export function month(key: string, cache: cache) {
-  const record = cache[`${key}_${month.name}`]
-    ? cache[`${key}_${month.name}`]
+  const record = cache[`${key}_dates_dayDate`]
+    ? cache[`${key}_dates_dayDate`]
     : data.dates.search({ query: key, range: "dayDate" });
 
   if (record) {
-    cache[`${key}_${month.name}`] = record;
-    return record.monthSign + record.monthElement;
+    cache[`${key}_dates_dayDate`] = record;
+    return `${record.monthElement} ${record.monthSign}`;
   } else {
     throw new Error(
       "Lookup failed. This should not happen, please contact support."
