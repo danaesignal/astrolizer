@@ -5,7 +5,7 @@ import { ObsApp, ObsAppRequest } from "../../shared/tools/buildReport/obsApp";
 const reportRequest: ObsAppRequest = {
   calcDate: 20220708,
   dateOfBirth: 19841108,
-  gender: "male",
+  gender: "Male",
   motherYearOfBirth: 1955,
   timeOfBirth: 1700,
   calcTime: 1900,

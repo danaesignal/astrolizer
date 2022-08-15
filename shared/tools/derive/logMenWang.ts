@@ -11,14 +11,14 @@ export function logMenWang(
   const wangKey = logMenSign(age, gender, dateOfBirth, cache);
 
   if (wangKey) {
-    const record = cache[`${wangKey}_yearsElements_combined}`]
-      ? cache[`${wangKey}_yearsElements_combined`]
+    const record = cache[`${wangKey}_yearsElements_combined_7`]
+      ? cache[`${wangKey}_yearsElements_combined_7`]
       : data.yearsElements.offsetSearch(
           { query: wangKey, range: "combined" },
           7
         );
     if (record) {
-      cache[`${wangKey}_yearsElements_combined`] = record;
+      cache[`${wangKey}_yearsElements_combined_7`] = record;
       return record.combined;
     } else {
       throw new Error(

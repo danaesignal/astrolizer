@@ -11,7 +11,10 @@ export function yearBapMe(
 ): string {
   const bapMeKey = yearKyeMe(key, cache);
   const bapMeCount = (parseInt(age) % 9).toString();
-  const bapMeDirection = yearBapMeDirection(gender, bapMeCount);
+  const bapMeDirection = yearBapMeDirection(
+    gender.toLocaleLowerCase(),
+    bapMeCount
+  );
 
   const record = cache[`${key}_mewas_mewa`]
     ? cache[`${key}_mewas_mewa`]

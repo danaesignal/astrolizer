@@ -3,16 +3,16 @@ import { cache } from ".";
 import { yearLue } from ".";
 
 export function lueRelationship(key: string[], cache: cache) {
-  const clientRecord = cache[`${key[0]}_dates_yearLue`]
-    ? cache[`${key[0]}_dates_yearLue`]
-    : data.dates.search({ query: key[0], range: "yearLue" });
-  const yearRecord = cache[`${key[1]}_dates_yearLue`]
-    ? cache[`${key[1]}_dates_yearLue`]
-    : data.dates.search({ query: key[1], range: "yearLue" });
+  const clientRecord = cache[`${key[0]}_dates_dayDate`]
+    ? cache[`${key[0]}_dates_dayDate`]
+    : data.dates.search({ query: key[0], range: "dayDate" });
+  const yearRecord = cache[`${key[1]}_dates_dayDate`]
+    ? cache[`${key[1]}_dates_dayDate`]
+    : data.dates.search({ query: key[1], range: "dayDate" });
 
   if (clientRecord && yearRecord) {
-    cache[`${key[0]}_dates_yearLue`] = clientRecord;
-    cache[`${key[1]}_dates_yearLue`] = yearRecord;
+    cache[`${key[0]}_dates_dayDate`] = clientRecord;
+    cache[`${key[1]}_dates_dayDate`] = yearRecord;
 
     const lueRelationshipKey = `${clientRecord.yearLue}${yearRecord.yearLue}`;
 

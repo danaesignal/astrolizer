@@ -11,14 +11,14 @@ export function logMenSrog(
   const srogKey = logMenSign(age, gender, dateOfBirth, cache);
 
   if (srogKey) {
-    const record = cache[`${srogKey}_yearsElements_combined`]
-      ? cache[`${srogKey}_yearsElements_combined`]
+    const record = cache[`${srogKey}_yearsElements_combined_4`]
+      ? cache[`${srogKey}_yearsElements_combined_4`]
       : data.yearsElements.offsetSearch(
           { query: srogKey, range: "combined" },
           4
         );
     if (record) {
-      cache[`${srogKey}_yearsElements_combined`] = record;
+      cache[`${srogKey}_yearsElements_combined_4`] = record;
       return record.combined;
     } else {
       throw new Error(

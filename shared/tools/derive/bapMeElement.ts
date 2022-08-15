@@ -8,7 +8,6 @@ export function bapMeElement(
   cache: cache
 ): string {
   const sign = bapMeSign(dateOfBirth, age, gender, cache);
-
   const record = cache[`${sign}_mewas_mewa`]
     ? cache[`${sign}_mewas_mewa`]
     : data.mewas.search({ query: sign, range: "mewa" });

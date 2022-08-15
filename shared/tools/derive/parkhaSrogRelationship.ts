@@ -1,17 +1,18 @@
 import * as data from "../../data";
-import { cache, yearSrog } from ".";
+import { cache, yearBapPar, yearSrog } from ".";
 
 export function parkhaSrogRelationship(
   dateOfBirth: string,
   cache: cache
 ): string {
   const srog = yearSrog(dateOfBirth, cache);
-  const recordOne = cache[`${srog}_birthParkha_kye-Parkha`]
-    ? cache[`${srog}_birthParkha_kye-Parkha`]
-    : data.birthParkha.search({ query: srog, range: "kye-Parkha" });
+  const bapPar = yearBapPar(dateOfBirth, cache);
+  const recordOne = cache[`${bapPar}_birthParkha_kye-Parkha`]
+    ? cache[`${bapPar}_birthParkha_kye-Parkha`]
+    : data.birthParkha.search({ query: bapPar, range: "kye-Parkha" });
 
   if (recordOne) {
-    cache[`${srog}_birthParkha_kye-Parkha`] = recordOne;
+    cache[`${bapPar}_birthParkha_kye-Parkha`] = recordOne;
     const element = recordOne.element;
 
     const recordTwo = cache[`${srog + element}_relationships_elemCombo`]
@@ -22,7 +23,7 @@ export function parkhaSrogRelationship(
         });
     if (recordTwo) {
       cache[`${srog + element}_relationships_elemCombo`] = recordTwo;
-      return `${element} ${recordOne.elemDeu}`;
+      return `${element} ${recordTwo.elemDeu}`;
     } else {
       throw new Error(
         "Lookup failed. This should not happen, please contact support."

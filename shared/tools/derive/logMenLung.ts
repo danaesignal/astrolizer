@@ -11,14 +11,14 @@ export function logMenLung(
   const lungKey = logMenSign(age, gender, dateOfBirth, cache);
 
   if (lungKey) {
-    const record = cache[`${lungKey}_yearsElements_combined`]
-      ? cache[`${lungKey}_yearsElements_combined`]
+    const record = cache[`${lungKey}_yearsElements_combined_-7`]
+      ? cache[`${lungKey}_yearsElements_combined_-7`]
       : data.yearsElements.offsetSearch(
           { query: lungKey, range: "combined" },
           -7
         );
     if (record) {
-      cache[`${lungKey}_yearsElements_combined`] = record;
+      cache[`${lungKey}_yearsElements_combined_-7`] = record;
       return record.combined;
     } else {
       throw new Error(

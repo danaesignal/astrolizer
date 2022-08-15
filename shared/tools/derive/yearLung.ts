@@ -3,7 +3,7 @@ import { cache } from ".";
 
 export function yearLung(key: string, cache: cache) {
   const record = cache[`${key}_dates_dayDate`]
-    ? cache[`${key}_dates_yearLung`]
+    ? cache[`${key}_dates_dayDate`]
     : data.dates.search({ query: key, range: "dayDate" });
 
   if (record) {

@@ -3,16 +3,16 @@ import { cache } from ".";
 import { yearWang } from ".";
 
 export function wangRelationship(key: string[], cache: cache) {
-  const clientRecord = cache[`${key[0]}_dates_yearWang`]
-    ? cache[`${key[0]}_dates_yearWang`]
-    : data.dates.search({ query: key[0], range: "yearWang" });
-  const yearRecord = cache[`${key[1]}_dates_yearWang`]
-    ? cache[`${key[1]}_dates_yearWang`]
-    : data.dates.search({ query: key[1], range: "yearWang" });
+  const clientRecord = cache[`${key[0]}_dates_dayDate`]
+    ? cache[`${key[0]}_dates_dayDate`]
+    : data.dates.search({ query: key[0], range: "dayDate" });
+  const yearRecord = cache[`${key[1]}_dates_dayDate`]
+    ? cache[`${key[1]}_dates_dayDate`]
+    : data.dates.search({ query: key[1], range: "dayDate" });
 
   if (clientRecord && yearRecord) {
-    cache[`${key[0]}_dates_yearWang}`] = clientRecord;
-    cache[`${key[1]}_dates_yearWang}`] = yearRecord;
+    cache[`${key[0]}_dates_dayDate}`] = clientRecord;
+    cache[`${key[1]}_dates_dayDate}`] = yearRecord;
 
     const wangRelationshipKey = `${clientRecord.yearWang}${yearRecord.yearWang}`;
 

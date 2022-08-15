@@ -3,7 +3,7 @@ export type yearsElements = {
   sign: string;
   combined: string;
   srog: string;
-  lus: string;
+  lue: string;
   wang: string;
   lung: string;
   gender: string;

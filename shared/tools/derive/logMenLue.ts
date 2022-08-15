@@ -11,14 +11,14 @@ export function logMenLue(
   const lueKey = logMenSign(age, gender, dateOfBirth, cache);
 
   if (lueKey) {
-    const record = cache[`${lueKey}_yearsElements_combined`]
-      ? cache[`${lueKey}_yearsElements_combined`]
+    const record = cache[`${lueKey}_yearsElements_combined_-4`]
+      ? cache[`${lueKey}_yearsElements_combined_-4`]
       : data.yearsElements.offsetSearch(
           { query: lueKey, range: "combined" },
           -4
         );
     if (record) {
-      cache[`${lueKey}_yearsElements_combined`] = record;
+      cache[`${lueKey}_yearsElements_combined_-4`] = record;
       return record.combined;
     } else {
       throw new Error(

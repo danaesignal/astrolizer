@@ -197,19 +197,19 @@ export class ObsApp {
       },
       {
         label: "Dutsod Srog",
-        content: derive.dutsodSrog([timeOfBirth, calcDate], cache),
+        content: derive.dutsodSrog([calcTime, calcDate], cache),
       },
       {
         label: "Dutsod Lue",
-        content: derive.dutsodLue([timeOfBirth, calcDate], cache),
+        content: derive.dutsodLue([calcTime, calcDate], cache),
       },
       {
         label: "Dutsod Wang",
-        content: derive.dutsodWang([timeOfBirth, calcDate], cache),
+        content: derive.dutsodWang([calcTime, calcDate], cache),
       },
       {
         label: "Dutsod Lung",
-        content: derive.dutsodLung([timeOfBirth, calcDate], cache),
+        content: derive.dutsodLung([calcTime, calcDate], cache),
       }
     );
 

@@ -3,16 +3,16 @@ import { cache } from ".";
 import { yearSrog } from ".";
 
 export function srogRelationship(key: string[], cache: cache) {
-  const clientRecord = cache[`${key[0]}_dates_yearSrog`]
-    ? cache[`${key[0]}_dates_yearSrog`]
-    : data.dates.search({ query: key[0], range: "yearSrog" });
-  const yearRecord = cache[`${key[1]}_dates_yearSrog`]
-    ? cache[`${key[1]}_dates_yearSrog`]
-    : data.dates.search({ query: key[1], range: "yearSrog" });
+  const clientRecord = cache[`${key[0]}_dates_dayDate`]
+    ? cache[`${key[0]}_dates_dayDate`]
+    : data.dates.search({ query: key[0], range: "dayDate" });
+  const yearRecord = cache[`${key[1]}_dates_dayDate`]
+    ? cache[`${key[1]}_dates_dayDate`]
+    : data.dates.search({ query: key[1], range: "dayDate" });
 
   if (clientRecord && yearRecord) {
-    cache[`${key[0]}_dates_yearSrog`] = clientRecord;
-    cache[`${key[1]}_dates_yearSrog`] = yearRecord;
+    cache[`${key[0]}_dates_dayDate`] = clientRecord;
+    cache[`${key[1]}_dates_dayDate`] = yearRecord;
 
     const srogRelationshipKey = `${clientRecord.yearSrog}${yearRecord.yearSrog}`;
 
@@ -22,7 +22,6 @@ export function srogRelationship(key: string[], cache: cache) {
           query: srogRelationshipKey,
           range: "elemCombo",
         });
-
     if (record) {
       return `${record.elemDeu}`;
     } else {

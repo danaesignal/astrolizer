@@ -1,18 +1,26 @@
 import * as data from "../../data";
-import { cache, year } from ".";
+import { cache, year, yearWang } from ".";
 
 export function dargudSrog(dateOfBirth: string, cache: cache): string {
-  const yearData = year(dateOfBirth, cache).split(" ");
-  const element = yearData[0];
-  const animal = yearData[1];
+  const yearCombined = year(dateOfBirth, cache);
+  const animal = yearCombined.split(" ")[1];
+  const element = yearWang(dateOfBirth, cache).toLowerCase();
 
-  const record = cache[`${animal}_dargudFunctions_dargudAnimals`]
+  const recordOne = cache[`${animal}_dargudFunctions_dargudAnimals`]
     ? cache[`${animal}_dargudFunctions_dargudAnimals`]
     : data.dargudFunctions.search({ query: animal, range: "dargudAnimals" });
 
-  if (record) {
-    cache[`${animal}_dargudFunctions_dargudAnimals`] = record;
-    const count = record[element];
+  const recordTwo = cache[`${yearCombined}_yearsElements_combined`]
+    ? cache[`${yearCombined}_yearsElements_combined`]
+    : data.yearsElements.search({
+        query: yearCombined,
+        range: "combined",
+      });
+
+  if (recordOne && recordTwo) {
+    cache[`${animal}_dargudFunctions_dargudAnimals`] = recordOne;
+    cache[`${yearCombined}_yearsElements_combined`] = recordTwo;
+    const count = recordOne[element];
 
     const countRecord = cache[`${count}_dargudFunctions_dargudCount`]
       ? cache[`${count}_dargudFunctions_dargudCount`]

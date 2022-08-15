@@ -1,17 +1,18 @@
 import * as data from "../../data";
-import { cache, yearLung } from ".";
+import { cache, yearBapPar, yearLung } from ".";
 
 export function parkhaLungRelationship(
   dateOfBirth: string,
   cache: cache
 ): string {
   const lung = yearLung(dateOfBirth, cache);
-  const recordOne = cache[`${lung}_birthParkha_kye-Parkha`]
-    ? cache[`${lung}_birthParkha_kye-Parkha`]
-    : data.birthParkha.search({ query: lung, range: "kye-Parkha" });
+  const bapPar = yearBapPar(dateOfBirth, cache);
+  const recordOne = cache[`${bapPar}_birthParkha_kye-Parkha`]
+    ? cache[`${bapPar}_birthParkha_kye-Parkha`]
+    : data.birthParkha.search({ query: bapPar, range: "kye-Parkha" });
 
   if (recordOne) {
-    cache[`${lung}_birthParkha_kye-Parkha`] = recordOne;
+    cache[`${bapPar}_birthParkha_kye-Parkha`] = recordOne;
     const element = recordOne.element;
 
     const recordTwo = cache[`${lung + element}_relationships_elemCombo`]
@@ -22,7 +23,7 @@ export function parkhaLungRelationship(
         });
     if (recordTwo) {
       cache[`${lung + element}_relationships_elemCombo`] = recordTwo;
-      return `${element} ${recordOne.elemDeu}`;
+      return `${element} ${recordTwo.elemDeu}`;
     } else {
       throw new Error(
         "Lookup failed. This should not happen, please contact support."

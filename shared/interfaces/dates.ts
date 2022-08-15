@@ -5,7 +5,7 @@ export type datesRecord = {
   yearGender: string;
   yearSign: string;
   yearSrog: string;
-  yearLus: string;
+  yearLue: string;
   yearWang: string;
   yearLung: string;
   yearKyeMe: string;

@@ -15,7 +15,6 @@ export class Dataset<T extends { [key: string]: string }> {
       return record[request.range] === request.query;
     });
     let result: T | undefined;
-
     if (initialResult) {
       const index = this.data.indexOf(initialResult);
       let offsetIndex = offset + index;
@@ -23,13 +22,12 @@ export class Dataset<T extends { [key: string]: string }> {
       while (offsetIndex >= this.data.length) {
         offsetIndex = offsetIndex - this.data.length;
       }
+
       while (offsetIndex < 0) {
         offsetIndex = offsetIndex + this.data.length;
       }
 
-      result = this.data.find((record: T) => {
-        return record[request.range] === request.query;
-      });
+      result = this.data[offsetIndex];
     }
 
     return result;

@@ -3,16 +3,16 @@ import { cache } from ".";
 import { yearLung } from ".";
 
 export function lungRelationship(key: string[], cache: cache) {
-  const clientRecord = cache[`${key[0]}_dates_yearLung`]
-    ? cache[`${key[0]}_dates_yearLung`]
-    : data.dates.search({ query: key[0], range: "yearLung" });
-  const yearRecord = cache[`${key[1]}_dates_yearLung`]
-    ? cache[`${key[1]}_dates_yearLung`]
-    : data.dates.search({ query: key[1], range: "yearLung" });
+  const clientRecord = cache[`${key[0]}_dates_dayDate`]
+    ? cache[`${key[0]}_dates_dayDate`]
+    : data.dates.search({ query: key[0], range: "dayDate" });
+  const yearRecord = cache[`${key[1]}_dates_dayDate`]
+    ? cache[`${key[1]}_dates_dayDate`]
+    : data.dates.search({ query: key[1], range: "dayDate" });
 
   if (clientRecord && yearRecord) {
-    cache[`${key[0]}_dates_yearLung`] = clientRecord;
-    cache[`${key[1]}_dates_yearLung`] = yearRecord;
+    cache[`${key[0]}_dates_dayDate`] = clientRecord;
+    cache[`${key[1]}_dates_dayDate`] = yearRecord;
 
     const lungRelationshipKey = `${clientRecord.yearLung}${yearRecord.yearLung}`;
 

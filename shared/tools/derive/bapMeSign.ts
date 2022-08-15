@@ -1,5 +1,5 @@
 import * as data from "../../data";
-import { cache, yearKyeMe, yearBapMe } from ".";
+import { cache, yearBapMe } from ".";
 
 export function bapMeSign(
   dateOfBirth: string,
@@ -7,8 +7,7 @@ export function bapMeSign(
   gender: string,
   cache: cache
 ): string {
-  const kyeMe = yearKyeMe(dateOfBirth, cache);
-  const bapMe = yearBapMe(kyeMe, age, gender, cache);
+  const bapMe = yearBapMe(dateOfBirth, age, gender, cache);
 
   const record = cache[`${bapMe}_mewas_c`]
     ? cache[`${bapMe}_mewas_c`]
@@ -16,7 +15,7 @@ export function bapMeSign(
 
   if (record) {
     cache[`${bapMe}_mewas_c`] = record;
-    return record.c;
+    return record.mewa;
   } else {
     throw new Error(
       "Lookup failed. This should not happen, please contact support."

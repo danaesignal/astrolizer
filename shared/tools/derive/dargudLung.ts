@@ -2,17 +2,25 @@ import * as data from "../../data";
 import { cache, hour } from ".";
 
 export function dargudLung(key: string[], cache: cache): string {
-  const hourData = hour(key, cache).split(" ");
-  const element = hourData[0];
-  const animal = hourData[1];
+  const hourCombined = hour(key, cache);
+  const animal = hourCombined.split(" ")[1];
 
-  const record = cache[`${animal}_dargudFunctions_dargudAnimals`]
+  const recordOne = cache[`${animal}_dargudFunctions_dargudAnimals`]
     ? cache[`${animal}_dargudFunctions_dargudAnimals`]
     : data.dargudFunctions.search({ query: animal, range: "dargudAnimals" });
 
-  if (record) {
-    cache[`${animal}_dargudFunctions_dargudAnimals`] = record;
-    const count = record[element];
+  const recordTwo = cache[`${hourCombined}_yearsElements_combined`]
+    ? cache[`${hourCombined}_yearsElements_combined`]
+    : data.yearsElements.search({
+        query: hourCombined,
+        range: "combined",
+      });
+
+  if (recordOne && recordTwo) {
+    cache[`${animal}_dargudFunctions_dargudAnimals`] = recordOne;
+    cache[`${hourCombined}_yearsElements_combined`] = recordTwo;
+    const lung = recordTwo.lung.toLocaleLowerCase();
+    const count = recordOne[lung];
 
     const countRecord = cache[`${count}_dargudFunctions_dargudCount`]
       ? cache[`${count}_dargudFunctions_dargudCount`]
