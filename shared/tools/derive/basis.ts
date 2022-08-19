@@ -8,7 +8,7 @@ export function basis(key: string, cache: cache) {
 
   if (record) {
     cache[`${key}_dates_dayDate`] = record;
-    return `${record.ldBasis}`;
+    return `${record.lDBasis}`;
   } else {
     throw new Error(
       "Lookup failed. This should not happen, please contact support."

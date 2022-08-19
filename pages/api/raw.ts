@@ -1,17 +1,19 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import { ObsApp, ObsAppRequest } from "../../shared/tools/buildReport/obsApp";
+import {
+  DayCalc,
+  DayCalcRequest,
+} from "../../shared/tools/buildReport/dayCalc";
 
-const reportRequest: ObsAppRequest = {
-  calcDate: 20220708,
+const reportRequest: DayCalcRequest = {
   dateOfBirth: 19841108,
-  gender: "Male",
   motherYearOfBirth: 1955,
-  timeOfBirth: 1700,
-  calcTime: 1900,
+  timeOfBirth: 2000,
+  calcDate: 20220617,
+  calcTime: 2000,
 };
 
-const report = new ObsApp(reportRequest);
+const report = new DayCalc(reportRequest);
 const reportJSON = report.generateReport();
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {

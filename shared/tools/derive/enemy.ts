@@ -8,7 +8,7 @@ export function enemy(key: string, cache: cache) {
 
   if (record) {
     cache[`${key}_dates_dayDate`] = record;
-    return `${record.ldEnemy}`;
+    return `${record.lDEnemy}`;
   } else {
     throw new Error(
       "Lookup failed. This should not happen, please contact support."

@@ -1,7 +1,7 @@
 import * as data from "../../data";
 import { cache, yoga } from ".";
 
-export function yogaText(key: string, cache: cache) {
+export function yogaNatalMeaning(key: string, cache: cache) {
   const yogaKey = yoga(key, cache);
 
   const record = cache[`${yogaKey}_yogas_yogas`]

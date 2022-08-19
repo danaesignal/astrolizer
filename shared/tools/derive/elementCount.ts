@@ -20,7 +20,7 @@ import {
 } from ".";
 
 export function elementCount(key: string[], element: string, cache: cache) {
-  const dob = key[0];
+  const dob = key[1];
   const elements = [
     yearLifeForce(dob, cache),
     yearBody(dob, cache),

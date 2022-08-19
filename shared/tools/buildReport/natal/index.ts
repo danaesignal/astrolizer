@@ -8,7 +8,7 @@ export type NatalRequest = {
   timeOfBirth: number;
   motherYearOfBirth: number;
 };
-export class ObsApp {
+export class Natal {
   private input;
 
   constructor(request: NatalRequest) {
@@ -30,7 +30,9 @@ export class ObsApp {
     const { dateOfBirth, timeOfBirth, motherYearOfBirth } = this.input;
     const birthYear = dateOfBirth.slice(0, 4);
     const count = (
-      parseInt(birthYear) - parseInt(motherYearOfBirth)
+      parseInt(birthYear) -
+      parseInt(motherYearOfBirth) +
+      1
     ).toString();
 
     sectionOne.push(
@@ -42,10 +44,9 @@ export class ObsApp {
       },
       { label: "Birth Year", content: birthYear },
       { label: "Count", content: count },
-      { label: "Count", content: count },
       { label: "Year", content: derive.year(dateOfBirth, cache) },
-      { label: "Month", content: derive.month(dateOfBirth, cache) },
-      { label: "Day", content: derive.day(dateOfBirth, cache) },
+      { label: "Month", content: derive.monthCount(dateOfBirth, cache) },
+      { label: "Day", content: derive.dayCount(dateOfBirth, cache) },
       {
         label: "Hour",
         content: derive.hour([timeOfBirth, dateOfBirth], cache),
@@ -80,7 +81,10 @@ export class ObsApp {
         content: derive.conjunctionText(dateOfBirth, cache),
       },
       { label: "Yoga", content: derive.yoga(dateOfBirth, cache) },
-      { label: "Yoga Text", content: derive.yogaText(dateOfBirth, cache) }
+      {
+        label: "Yoga Text",
+        content: derive.yogaNatalMeaning(dateOfBirth, cache),
+      }
     );
 
     sectionThree.push(
@@ -143,29 +147,29 @@ export class ObsApp {
     sectionFour.push(
       {
         label: "Birth Year Mewa",
-        content: derive.birthYearMewa(dateOfBirth, cache),
+        content: derive.yearMewa(dateOfBirth, cache),
       },
       {
         label: "Birth Day Mewa",
-        content: derive.birthDayMewa(dateOfBirth, cache),
+        content: derive.dayMewa(dateOfBirth, cache),
       },
       { label: "Kye-Parkha", content: derive.kyeParkha(count, cache) },
       {
         label: "Birth-Day Parkha",
-        content: derive.birthDayParkha(dateOfBirth, cache),
+        content: derive.dayParkha(dateOfBirth, cache),
       },
       {
         label: "Wood Count (Percent)",
-        content: derive.elementCount([dateOfBirth, timeOfBirth], "Wood", cache),
+        content: derive.elementCount([timeOfBirth, dateOfBirth], "Wood", cache),
       },
       {
         label: "Fire Count (Percent)",
-        content: derive.elementCount([dateOfBirth, timeOfBirth], "Fire", cache),
+        content: derive.elementCount([timeOfBirth, dateOfBirth], "Fire", cache),
       },
       {
         label: "Earth Count (Percent)",
         content: derive.elementCount(
-          [dateOfBirth, timeOfBirth],
+          [timeOfBirth, dateOfBirth],
           "Earth",
           cache
         ),
@@ -173,7 +177,7 @@ export class ObsApp {
       {
         label: "Metal Count (Percent)",
         content: derive.elementCount(
-          [dateOfBirth, timeOfBirth],
+          [timeOfBirth, dateOfBirth],
           "Metal",
           cache
         ),
@@ -181,7 +185,7 @@ export class ObsApp {
       {
         label: "Water Count (Percent)",
         content: derive.elementCount(
-          [dateOfBirth, timeOfBirth],
+          [timeOfBirth, dateOfBirth],
           "Water",
           cache
         ),
