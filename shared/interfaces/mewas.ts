@@ -2,13 +2,13 @@ export type mewas = {
   mewa: string;
   c: string;
   e: string;
-  sE: string;
+  se: string;
   s: string;
-  sW: string;
+  sw: string;
   w: string;
-  nW: string;
+  nw: string;
   n: string;
-  nE: string;
+  ne: string;
   element: string;
   mewaInterpretation: string;
 };
