@@ -12,25 +12,22 @@ interface Props {
   handleChange(key: string, formValue: string): any;
 }
 
-export const InputElement: NextPage<Props> = (props) => {
+export const GenderSelector: NextPage<Props> = (props) => {
   const { label, content } = props.data;
   const { customLabel, placeholder, handleChange, formKey } = props;
-
   return (
     <div className={styles.displayElement}>
       <div className={styles.label}>{customLabel ? customLabel : label}:</div>
-      <input
+      <select
         className={styles.input}
-        placeholder={placeholder ? placeholder : content}
         onChange={(event) => {
-          let newVal = event.target.value;
-          let charLimit = placeholder ? placeholder.length : 8;
-          if (/^[0-9]+$|^$/.test(newVal) && newVal.length <= charLimit) {
-            handleChange(formKey, event.target.value);
-          }
+          handleChange(formKey, event.target.value);
         }}
-        value={content}
-      />
+        defaultValue={content}
+      >
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
     </div>
   );
 };

@@ -1,9 +1,7 @@
 import type { NextPage } from "next";
-import styles from "../../shared/styles/styles.module.css";
-import { ObsAppRequest } from "../../shared/tools/buildReport/obsApp";
-import { ReactElement, useState } from "react";
 import { dataKeys } from "../../pages/obsapp";
 import { InputElement } from "../InputElement";
+import { GenderSelector } from "../GenderSelector";
 
 interface Props {
   formData: {
@@ -52,7 +50,7 @@ export const ObsAppModal: NextPage<Props> = (props) => {
         placeholder="YYYY"
         formKey={dataKeys.motherYearOfBirth}
       />
-      <InputElement
+      <GenderSelector
         data={{ label: "Gender", content: formData[dataKeys.gender] }}
         handleChange={handleChange}
         placeholder="[male/female]"

@@ -22,8 +22,20 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     gender,
   };
 
-  const report = new ObsApp(reportRequest);
-  const reportJSON = report.generateReport();
-
-  res.status(200).send(reportJSON);
+  try {
+    const report = new ObsApp(reportRequest);
+    const reportJSON = report.generateReport();
+    res.status(200).send({
+      code: 200,
+      message: "Request was successful",
+      payload: reportJSON,
+    });
+  } catch {
+    res.status(400).send({
+      code: 400,
+      message:
+        "Malformed or improper request. Please check your input and try again.",
+      payload: reportRequest,
+    });
+  }
 }
