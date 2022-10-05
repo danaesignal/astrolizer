@@ -19,7 +19,7 @@ export const GenderSelector: NextPage<Props> = (props) => {
     <div className={styles.displayElement}>
       <div className={styles.label}>{customLabel ? customLabel : label}:</div>
       <select
-        className={styles.input}
+        className={styles.inputDropdown}
         onChange={(event) => {
           handleChange(formKey, event.target.value);
         }}

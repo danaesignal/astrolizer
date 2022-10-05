@@ -112,3 +112,4 @@ export { hourSrogRelationship } from "./hourSrogRelationship";
 export { hourWangRelationship } from "./hourWangRelationship";
 export { hourLungRelationship } from "./hourLungRelationship";
 export { yogaDailyMeaning } from "./yogaDailyMeaning";
+export { elementPercent } from "./elementPercent";

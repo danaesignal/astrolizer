@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { useState } from "react";
 import styles from "../shared/styles/styles.module.css";
-import { Navbar } from "../components/Navbar";
+import { Navbar, pages } from "../components/Navbar";
 import { ObsAppModal } from "../components/ObsAppModal";
 import { LoadingSpinner } from "../components/LoadingSpinner";
 import { ObsAppGrid } from "../components/ObsAppGrid";
@@ -89,7 +89,7 @@ const ObsApp: NextPage = () => {
   if (!data && !loading)
     return (
       <div className={styles.container}>
-        <Navbar />
+        <Navbar selected={pages.obsapp} />
         <div className={styles.modalContainer}>
           <ObsAppModal formData={formData} handleChange={handleChange} />
           <div className={styles.buttonContainer}>
@@ -106,7 +106,7 @@ const ObsApp: NextPage = () => {
   if (data) {
     return (
       <div className={styles.container}>
-        <Navbar />
+        <Navbar selected={pages.obsapp} />
         <main className={styles.main}>
           <ObsAppGrid
             formData={formData}
@@ -127,7 +127,7 @@ const ObsApp: NextPage = () => {
   }
   return (
     <div>
-      <Navbar />
+      <Navbar selected={pages.obsapp} />
       <LoadingSpinner />
     </div>
   );

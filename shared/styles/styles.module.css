@@ -28,13 +28,14 @@
   background-color: inherit;
   padding: 5px 30px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .inactive:hover {
   background-color: #f8f8f0;
   color: black;
   padding: 5px 30px;
-  filter: brightness(80%);
+  filter: brightness(90%);
   font-weight: bold;
 }
 
@@ -53,6 +54,8 @@
   overflow: auto;
   background-color: white;
   padding: 5px 10px;
+  max-width: 80vw;
+  overflow-x: scroll;
 }
 
 .modalContainer {
@@ -68,6 +71,7 @@
   display: flex;
   width: 100%;
   flex-direction: column;
+  font-weight: 500;
 }
 
 .row {
@@ -76,35 +80,35 @@
 }
 
 .displayElement {
-  width: 15rem;
+  width: 25rem;
   display: flex;
   flex-shrink: 0;
   align-items: flex-end;
 }
 
 .labelElement {
-  min-width: 7.5rem;
+  min-width: 12.5rem;
   display: flex;
   flex-shrink: 0;
   align-items: flex-end;
 }
 
 .contentElement {
-  min-width: 7.5rem;
+  min-width: 12.5rem;
   display: flex;
   flex-shrink: 0;
   align-items: flex-end;
 }
 
 .wideContentElement {
-  min-width: 15rem;
+  min-width: 25rem;
   display: flex;
   flex-shrink: 0;
   align-items: flex-end;
 }
 
 .verticalDisplayElement {
-  min-width: 7.5rem;
+  min-width: 12.5rem;
   display: flex;
   flex-shrink: 0;
   flex-direction: column;
@@ -112,58 +116,79 @@
 
 .label {
   padding: 2px 5px;
-  min-width: 7.5rem;
+  min-width: 12.5rem;
   flex-grow: 1;
+  font-weight: 600;
 }
 
 .verticalLabel {
   padding: 2px 5px;
-  min-width: 7.5rem;
+  min-width: 12.5rem;
   flex-grow: 1;
-  text-align: right;
+  text-align: left;
   max-height: 50%;
 }
 
 .content {
   padding: 2px 5px;
   background-color: aliceblue;
-  min-width: 7.5rem;
+  min-width: 12.5rem;
   flex-grow: 1;
-  text-align: right;
+  text-align: left;
+}
+
+.spacer {
+  padding: 2px 5px;
+  background-color: inherit;
+  min-width: 12.5rem;
+  flex-grow: 1;
+  text-align: left;
 }
 
 .wideContent {
   padding: 2px 5px;
   background-color: aliceblue;
-  min-width: 15rem;
+  min-width: 25rem;
   flex-grow: 1;
-  text-align: right;
+  text-align: left;
 }
 
 .verticalContent {
   padding: 2px 5px;
   background-color: aliceblue;
-  min-width: 7.5rem;
+  min-width: 12.5rem;
   flex-grow: 1;
-  text-align: right;
+  text-align: left;
   max-height: 50%;
 }
 
 .inputDiv {
   padding: 2px 5px;
   background-color: powderblue;
-  width: 7.5rem;
+  width: 12.5rem;
   flex-grow: 1;
-  text-align: right;
+  text-align: left;
+  font-weight: 600;
 }
 
 .input {
   border: none;
   padding: 3px 5px;
   background-color: powderblue;
-  width: 7.5rem;
+  width: 12.5rem;
   flex-grow: 1;
-  text-align: right;
+  text-align: left;
+  font-weight: 600;
+}
+
+.inputDropdown {
+  border: none;
+  padding: 3px 5px 3px 1px;
+  background-color: powderblue;
+  width: 12.5rem;
+  flex-grow: 1;
+  text-align: left;
+  font-weight: 600;
 }
 
 .button {

@@ -19,7 +19,7 @@ import {
   hourLuck,
 } from ".";
 
-export function elementCount(key: string[], element: string, cache: cache) {
+export function elementPercent(key: string[], element: string, cache: cache) {
   const dob = key[1];
   const elements = [
     yearLifeForce(dob, cache),
@@ -45,5 +45,5 @@ export function elementCount(key: string[], element: string, cache: cache) {
     if (current === element) found.push(current);
   }
 
-  return `${found.length}`;
+  return `${(found.length / elements.length) * 100}%`;
 }

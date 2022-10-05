@@ -10,7 +10,7 @@ export const Spacer: NextPage<Props> = (props) => {
   return (
     <div className={styles.displayElement}>
       <div className={styles.label}>{customLabel ? `${customLabel}:` : ""}</div>
-      <div className={styles.content}></div>
+      <div className={styles.spacer}></div>
     </div>
   );
 };

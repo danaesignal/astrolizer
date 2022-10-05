@@ -89,55 +89,55 @@ export class Natal {
 
     sectionThree.push(
       { label: "Year Sign", content: derive.year(dateOfBirth, cache) },
-      { label: "Month Sign", content: derive.month(dateOfBirth, cache) },
-      { label: "Day Sign", content: derive.day(dateOfBirth, cache) },
-      {
-        label: "Hour Sign",
-        content: derive.hour([timeOfBirth, dateOfBirth], cache),
-      },
       { label: "Year Gender", content: derive.yearGender(dateOfBirth, cache) },
-      {
-        label: "Month Gender",
-        content: derive.monthGender(dateOfBirth, cache),
-      },
-      { label: "Day Gender", content: derive.dayGender(dateOfBirth, cache) },
-      {
-        label: "Hour Gender",
-        content: derive.hourGender([timeOfBirth, dateOfBirth], cache),
-      },
       {
         label: "Year Life-Force",
         content: derive.yearLifeForce(dateOfBirth, cache),
+      },
+      { label: "Year Body", content: derive.yearBody(dateOfBirth, cache) },
+      { label: "Year Power", content: derive.yearPower(dateOfBirth, cache) },
+      { label: "Year Luck", content: derive.yearLuck(dateOfBirth, cache) },
+      { label: "Month Sign", content: derive.month(dateOfBirth, cache) },
+      {
+        label: "Month Gender",
+        content: derive.monthGender(dateOfBirth, cache),
       },
       {
         label: "Month Life-Force",
         content: derive.monthLifeForce(dateOfBirth, cache),
       },
+      { label: "Month Body", content: derive.monthBody(dateOfBirth, cache) },
+      { label: "Month Power", content: derive.monthPower(dateOfBirth, cache) },
+      { label: "Month Luck", content: derive.monthLuck(dateOfBirth, cache) },
+      { label: "Day Sign", content: derive.day(dateOfBirth, cache) },
+      { label: "Day Gender", content: derive.dayGender(dateOfBirth, cache) },
       {
         label: "Day Life-Force",
         content: derive.dayLifeForce(dateOfBirth, cache),
+      },
+      { label: "Day Body", content: derive.dayBody(dateOfBirth, cache) },
+      { label: "Day Power", content: derive.dayPower(dateOfBirth, cache) },
+      { label: "Day Luck", content: derive.dayLuck(dateOfBirth, cache) },
+      {
+        label: "Hour Sign",
+        content: derive.hour([timeOfBirth, dateOfBirth], cache),
+      },
+      {
+        label: "Hour Gender",
+        content: derive.hourGender([timeOfBirth, dateOfBirth], cache),
       },
       {
         label: "Hour Life-Force",
         content: derive.hourLifeForce([timeOfBirth, dateOfBirth], cache),
       },
-      { label: "Year Body", content: derive.yearBody(dateOfBirth, cache) },
-      { label: "Month Body", content: derive.monthBody(dateOfBirth, cache) },
-      { label: "Day Body", content: derive.dayBody(dateOfBirth, cache) },
       {
         label: "Hour Body",
         content: derive.hourBody([timeOfBirth, dateOfBirth], cache),
       },
-      { label: "Year Power", content: derive.yearPower(dateOfBirth, cache) },
-      { label: "Month Power", content: derive.monthPower(dateOfBirth, cache) },
-      { label: "Day Power", content: derive.dayPower(dateOfBirth, cache) },
       {
         label: "Hour Power",
         content: derive.hourPower([timeOfBirth, dateOfBirth], cache),
       },
-      { label: "Year Luck", content: derive.yearLuck(dateOfBirth, cache) },
-      { label: "Month Luck", content: derive.monthLuck(dateOfBirth, cache) },
-      { label: "Day Luck", content: derive.dayLuck(dateOfBirth, cache) },
       {
         label: "Hour Luck",
         content: derive.hourLuck([timeOfBirth, dateOfBirth], cache),
@@ -159,15 +159,31 @@ export class Natal {
         content: derive.dayParkha(dateOfBirth, cache),
       },
       {
-        label: "Wood Count (Percent)",
+        label: "Wood Count",
         content: derive.elementCount([timeOfBirth, dateOfBirth], "Wood", cache),
       },
       {
-        label: "Fire Count (Percent)",
+        label: "Wood Percent",
+        content: derive.elementPercent(
+          [timeOfBirth, dateOfBirth],
+          "Wood",
+          cache
+        ),
+      },
+      {
+        label: "Fire Count",
         content: derive.elementCount([timeOfBirth, dateOfBirth], "Fire", cache),
       },
       {
-        label: "Earth Count (Percent)",
+        label: "Fire Percent",
+        content: derive.elementPercent(
+          [timeOfBirth, dateOfBirth],
+          "Fire",
+          cache
+        ),
+      },
+      {
+        label: "Earth Count",
         content: derive.elementCount(
           [timeOfBirth, dateOfBirth],
           "Earth",
@@ -175,7 +191,15 @@ export class Natal {
         ),
       },
       {
-        label: "Metal Count (Percent)",
+        label: "Earth Percent",
+        content: derive.elementPercent(
+          [timeOfBirth, dateOfBirth],
+          "Earth",
+          cache
+        ),
+      },
+      {
+        label: "Metal Count",
         content: derive.elementCount(
           [timeOfBirth, dateOfBirth],
           "Metal",
@@ -183,8 +207,24 @@ export class Natal {
         ),
       },
       {
-        label: "Water Count (Percent)",
+        label: "Metal Percent",
+        content: derive.elementPercent(
+          [timeOfBirth, dateOfBirth],
+          "Metal",
+          cache
+        ),
+      },
+      {
+        label: "Water Count",
         content: derive.elementCount(
+          [timeOfBirth, dateOfBirth],
+          "Water",
+          cache
+        ),
+      },
+      {
+        label: "Water Percent",
+        content: derive.elementPercent(
           [timeOfBirth, dateOfBirth],
           "Water",
           cache
