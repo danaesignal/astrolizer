@@ -56,8 +56,17 @@
   padding: 5px 10px;
   max-width: 80vw;
   overflow-x: scroll;
+  /* display: flex; */
 }
 
+.gridDisplay {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.gridBox {
+  padding: 0 20px;
+}
 .modalContainer {
   box-shadow: 1px 1px 4px darkgray;
   overflow: auto;
@@ -66,7 +75,10 @@
   background-color: white;
   flex-direction: column;
 }
-
+.sideBySide {
+  display: flex;
+  flex-direction: row;
+}
 .section {
   display: flex;
   width: 100%;
@@ -79,36 +91,42 @@
   width: 100%;
 }
 
+.column {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
 .displayElement {
-  width: 25rem;
+  width: 15rem;
   display: flex;
   flex-shrink: 0;
-  align-items: flex-end;
+  align-items: flex-start;
 }
 
 .labelElement {
-  min-width: 12.5rem;
+  min-width: 7.5rem;
   display: flex;
   flex-shrink: 0;
   align-items: flex-end;
 }
 
 .contentElement {
-  min-width: 12.5rem;
+  min-width: 7.5rem;
   display: flex;
   flex-shrink: 0;
   align-items: flex-end;
 }
 
 .wideContentElement {
-  min-width: 25rem;
+  min-width: 15rem;
   display: flex;
   flex-shrink: 0;
   align-items: flex-end;
 }
 
 .verticalDisplayElement {
-  min-width: 12.5rem;
+  min-width: 7.5rem;
   display: flex;
   flex-shrink: 0;
   flex-direction: column;
@@ -116,14 +134,14 @@
 
 .label {
   padding: 2px 5px;
-  min-width: 12.5rem;
+  min-width: 7.5rem;
   flex-grow: 1;
   font-weight: 600;
 }
 
 .verticalLabel {
   padding: 2px 5px;
-  min-width: 12.5rem;
+  min-width: 7.5rem;
   flex-grow: 1;
   text-align: left;
   max-height: 50%;
@@ -132,7 +150,8 @@
 .content {
   padding: 2px 5px;
   background-color: aliceblue;
-  min-width: 12.5rem;
+  min-width: 7.5rem;
+  max-width: 15rem;
   flex-grow: 1;
   text-align: left;
 }
@@ -140,7 +159,7 @@
 .spacer {
   padding: 2px 5px;
   background-color: inherit;
-  min-width: 12.5rem;
+  min-width: 7.5rem;
   flex-grow: 1;
   text-align: left;
 }
@@ -148,7 +167,8 @@
 .wideContent {
   padding: 2px 5px;
   background-color: aliceblue;
-  min-width: 25rem;
+  min-width: 15rem;
+  max-width: 15rem;
   flex-grow: 1;
   text-align: left;
 }
@@ -156,7 +176,7 @@
 .verticalContent {
   padding: 2px 5px;
   background-color: aliceblue;
-  min-width: 12.5rem;
+  min-width: 7.5rem;
   flex-grow: 1;
   text-align: left;
   max-height: 50%;
@@ -165,7 +185,7 @@
 .inputDiv {
   padding: 2px 5px;
   background-color: powderblue;
-  width: 12.5rem;
+  width: 7.5rem;
   flex-grow: 1;
   text-align: left;
   font-weight: 600;
@@ -175,7 +195,7 @@
   border: none;
   padding: 3px 5px;
   background-color: powderblue;
-  width: 12.5rem;
+  width: 7.5rem;
   flex-grow: 1;
   text-align: left;
   font-weight: 600;
@@ -185,7 +205,7 @@
   border: none;
   padding: 3px 5px 3px 1px;
   background-color: powderblue;
-  width: 12.5rem;
+  width: 7.5rem;
   flex-grow: 1;
   text-align: left;
   font-weight: 600;

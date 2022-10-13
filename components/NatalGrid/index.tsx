@@ -80,13 +80,13 @@ export const NatalGrid: NextPage<Props> = (props) => {
       <div className={styles.section} style={{ marginTop: "2rem" }}>
         <div className={styles.row}>
           <DisplayElement data={data[1][0]} />
-          <DisplayElement data={data[1][1]} />
-          <DisplayElement data={data[1][2]} />
+          <DisplayElement customLabel="Element" data={data[1][1]} />
+          <DisplayElement customLabel="Day-Type" data={data[1][2]} />
         </div>
         <div className={styles.row}>
           <DisplayElement data={data[1][3]} />
-          <DisplayElement data={data[1][4]} />
-          <DisplayElement data={data[1][5]} />
+          <DisplayElement customLabel="Element" data={data[1][4]} />
+          <DisplayElement customLabel="Combination" data={data[1][5]} />
         </div>
         <div className={styles.row}>
           <DisplayElement data={data[1][6]} />
