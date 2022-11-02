@@ -2,9 +2,9 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { Natal, NatalRequest } from "../../shared/tools/buildReport/natal";
 import {
-  DayCalc,
-  DayCalcRequest,
-} from "../../shared/tools/buildReport/dayCalc";
+  OperatorDayCalc,
+  OperatorDayCalcRequest,
+} from "../../shared/tools/buildReport/operatorDayCalc";
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const body = JSON.parse(req.body);
@@ -17,7 +17,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     motherYearOfBirth,
   };
 
-  const dayCalcReportRequest: DayCalcRequest = {
+  const operatorDayCalcReportRequest: OperatorDayCalcRequest = {
     dateOfBirth,
     timeOfBirth,
     motherYearOfBirth,
@@ -27,15 +27,17 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
   try {
     const natalReport = new Natal(natalReportRequest);
-    const dayCalcReport = new DayCalc(dayCalcReportRequest);
+    const operatorDayCalcReport = new OperatorDayCalc(
+      operatorDayCalcReportRequest
+    );
     const natalReportJSON = natalReport.generateReport();
-    const dayCalcReportJSON = dayCalcReport.generateReport();
+    const operatorDayCalcReportJSON = operatorDayCalcReport.generateReport();
     res.status(200).send({
       code: 200,
       message: "Request was successful",
       payload: {
         natal: natalReportJSON,
-        dayCalc: dayCalcReportJSON,
+        operatorDayCalc: operatorDayCalcReportJSON,
       },
     });
   } catch {
@@ -45,7 +47,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         "Malformed or improper request. Please check your input and try again.",
       payload: {
         natal: natalReportRequest,
-        dayCalc: dayCalcReportRequest,
+        request: operatorDayCalcReportRequest,
       },
     });
   }

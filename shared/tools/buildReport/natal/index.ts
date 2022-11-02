@@ -1,6 +1,3 @@
-import { time } from "console";
-import * as data from "../../../data";
-import { yearsElements } from "../../../data";
 import * as derive from "../../derive";
 
 export type NatalRequest = {

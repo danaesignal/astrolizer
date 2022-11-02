@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
-import { dataKeys } from "../../pages/daycalc";
+import { dataKeys } from "../../pages/opdaycalc";
 import { InputElement } from "../InputElement";
-import { GenderSelector } from "../GenderSelector";
 
 interface Props {
   formData: {
@@ -14,7 +13,7 @@ interface Props {
   handleChange(key: string, formValue: string): any;
 }
 
-export const DayCalcModal: NextPage<Props> = (props) => {
+export const OperatorDayCalcModal: NextPage<Props> = (props) => {
   const { formData, handleChange } = props;
 
   return (

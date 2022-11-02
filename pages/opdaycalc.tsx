@@ -2,9 +2,10 @@ import type { NextPage } from "next";
 import { useState } from "react";
 import styles from "../shared/styles/styles.module.css";
 import { Navbar, pages } from "../components/Navbar";
-import { DayCalcModal } from "../components/PublicDayCalcModal";
+import { DayCalcModal } from "../components/DayCalcModal";
 import { LoadingSpinner } from "../components/LoadingSpinner";
-import { PublicDayCalcGrid } from "../components/PublicDayCalcGrid";
+import { OperatorDayCalcGrid } from "../components/OperatorDayCalcGrid";
+import { NatalGrid } from "../components/NatalGrid";
 
 type args = {
   method: string;
@@ -12,6 +13,9 @@ type args = {
 };
 
 export enum dataKeys {
+  dateOfBirth = "dateOfBirth",
+  timeOfBirth = "timeOfBirth",
+  motherYearOfBirth = "motherYearOfBirth",
   calcDate = "calcDate",
   calcTime = "calcTime",
 }
@@ -21,6 +25,9 @@ const DayCalc: NextPage = () => {
   const [calcData, setCalcData] = useState();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
+    dateOfBirth: "",
+    timeOfBirth: "",
+    motherYearOfBirth: "",
     calcDate: "",
     calcTime: "",
   });
@@ -34,11 +41,17 @@ const DayCalc: NextPage = () => {
   const resetFormData = () => {
     if (data) {
       setFormData({
+        dateOfBirth: data[0][0]["content"],
+        timeOfBirth: data[0][1]["content"],
+        motherYearOfBirth: data[0][4]["content"],
         calcDate: data[0][5]["content"],
         calcTime: data[0][5]["content"],
       });
     } else {
       setFormData({
+        dateOfBirth: "",
+        timeOfBirth: "",
+        motherYearOfBirth: "",
         calcDate: "",
         calcTime: "",
       });
@@ -50,16 +63,23 @@ const DayCalc: NextPage = () => {
     let payload: args = {
       method: "POST",
       body: JSON.stringify({
+        dateOfBirth: parseInt(formData.dateOfBirth),
+        timeOfBirth: parseInt(formData.timeOfBirth),
+        motherYearOfBirth: parseInt(formData.motherYearOfBirth),
         calcDate: parseInt(formData.calcDate),
         calcTime: parseInt(formData.calcTime),
       }),
     };
 
-    let res = await fetch("/api/pubdaycalc", payload);
+    let res = await fetch("/api/daycalc", payload);
     let json = await res.json();
     if (json.code === 200) {
+      setData(json.payload.natal);
       setCalcData(json.payload.dayCalc);
+      console.log(json.payload.dayCalc);
     } else {
+      console.log(`Response Code: ${json.code}`);
+      console.log(`Response Message: ${json.message}`);
       alert(`${json.message}`);
     }
     setLoading(false);
@@ -89,7 +109,14 @@ const DayCalc: NextPage = () => {
         <main className={styles.main}>
           <div className={styles.gridDisplay}>
             <div className={styles.gridBox}>
-              <PublicDayCalcGrid
+              {/* <NatalGrid
+                formData={formData}
+                data={data}
+                handleChange={handleChange}
+              /> */}
+            </div>
+            <div className={styles.gridBox}>
+              <DayCalcGrid
                 formData={formData}
                 data={calcData}
                 handleChange={handleChange}

@@ -1,16 +1,13 @@
 import { NextPage } from "next";
 import styles from "../../shared/styles/styles.module.css";
-import { dataKeys } from "../../pages/daycalc";
+import { dataKeys } from "../../pages/opdaycalc";
 import { InputElement } from "../InputElement";
-import { GenderSelector } from "../GenderSelector";
 import { DisplayElement } from "../DisplayElement";
 import { Spacer } from "../Spacer";
 import { VerticalDisplayElement } from "../VerticalDisplayElement";
 import { Label } from "../Label";
-import { VerticalSpacer } from "../VerticalSpacer";
 import { Content } from "../Content";
 import { WideContent } from "../WideContent";
-import { HalfSpacer } from "../HalfSpacer";
 
 interface Props {
   formData: {
@@ -29,7 +26,7 @@ interface Props {
   handleChange(key: string, formValue: string): any;
 }
 
-export const DayCalcGrid: NextPage<Props> = (props) => {
+export const OperatorDayCalcGrid: NextPage<Props> = (props) => {
   const { formData, data, handleChange } = props;
   return (
     <div>

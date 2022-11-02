@@ -1,19 +1,16 @@
-import { time } from "console";
-import * as data from "../../../data";
-import { yearsElements } from "../../../data";
 import * as derive from "../../derive";
 
-export type DayCalcRequest = {
+export type OperatorDayCalcRequest = {
   dateOfBirth: number;
   timeOfBirth: number;
   motherYearOfBirth: number;
   calcDate: number;
   calcTime: number;
 };
-export class DayCalc {
+export class OperatorDayCalc {
   private input;
 
-  constructor(request: DayCalcRequest) {
+  constructor(request: OperatorDayCalcRequest) {
     this.input = {
       dateOfBirth: request.dateOfBirth.toString(),
       timeOfBirth: request.timeOfBirth.toString(),

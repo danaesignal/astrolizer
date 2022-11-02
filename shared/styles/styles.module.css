@@ -125,6 +125,13 @@
   align-items: flex-end;
 }
 
+.veryWideContentElement {
+  min-width: 22.5rem;
+  display: flex;
+  flex-shrink: 0;
+  align-items: flex-end;
+}
+
 .verticalDisplayElement {
   min-width: 7.5rem;
   display: flex;
@@ -169,6 +176,15 @@
   background-color: aliceblue;
   min-width: 15rem;
   max-width: 15rem;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.veryWideContent {
+  padding: 2px 5px;
+  background-color: aliceblue;
+  min-width: 22.5rem;
+  max-width: 22.5rem;
   flex-grow: 1;
   text-align: left;
 }
