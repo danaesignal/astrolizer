@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
-import { useState } from "react";
 import styles from "../shared/styles/styles.module.css";
+import { useState } from "react";
 import { Navbar, pages } from "../components/Navbar";
-import { DayCalcModal } from "../components/DayCalcModal";
+import { OperatorDayCalcModal } from "../components/OperatorDayCalcModal";
 import { LoadingSpinner } from "../components/LoadingSpinner";
 import { OperatorDayCalcGrid } from "../components/OperatorDayCalcGrid";
 import { NatalGrid } from "../components/NatalGrid";
@@ -71,7 +71,7 @@ const DayCalc: NextPage = () => {
       }),
     };
 
-    let res = await fetch("/api/daycalc", payload);
+    let res = await fetch("/api/opdaycalc", payload);
     let json = await res.json();
     if (json.code === 200) {
       setData(json.payload.natal);
@@ -90,7 +90,10 @@ const DayCalc: NextPage = () => {
       <div className={styles.container}>
         <Navbar selected={pages.daycalc} />
         <div className={styles.modalContainer}>
-          <DayCalcModal formData={formData} handleChange={handleChange} />
+          <OperatorDayCalcModal
+            formData={formData}
+            handleChange={handleChange}
+          />
           <div className={styles.buttonContainer}>
             <button className={styles.button} onClick={submitRequest}>
               Submit
@@ -109,14 +112,14 @@ const DayCalc: NextPage = () => {
         <main className={styles.main}>
           <div className={styles.gridDisplay}>
             <div className={styles.gridBox}>
-              {/* <NatalGrid
+              <NatalGrid
                 formData={formData}
                 data={data}
                 handleChange={handleChange}
-              /> */}
+              />
             </div>
             <div className={styles.gridBox}>
-              <DayCalcGrid
+              <OperatorDayCalcGrid
                 formData={formData}
                 data={calcData}
                 handleChange={handleChange}

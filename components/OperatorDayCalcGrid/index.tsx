@@ -212,37 +212,6 @@ export const OperatorDayCalcGrid: NextPage<Props> = (props) => {
             </div>
           </div>
         </div>
-        <div>
-          <div className={styles.section} style={{ marginTop: "2rem" }}>
-            <div className={styles.column}>
-              <DisplayElement data={data[7][0]} />
-              <DisplayElement data={data[7][1]} />
-              <DisplayElement data={data[7][2]} />
-            </div>
-          </div>
-          <div className={styles.section} style={{ marginTop: "2rem" }}>
-            <div className={styles.column}>
-              <Label customLabel="Lunar Dates" />
-              <DisplayElement data={data[8][0]} />
-              <DisplayElement data={data[8][1]} />
-              <DisplayElement data={data[8][2]} />
-              <DisplayElement data={data[8][3]} />
-              <DisplayElement data={data[8][4]} />
-              <DisplayElement data={data[8][5]} />
-            </div>
-          </div>
-          <div className={styles.section} style={{ marginTop: "2rem" }}>
-            <div className={styles.column}>
-              <Label customLabel="Lunar Mansion" />
-              <DisplayElement data={data[9][0]} />
-              <DisplayElement data={data[9][1]} />
-              <DisplayElement data={data[9][2]} />
-              <DisplayElement data={data[9][3]} />
-              <DisplayElement data={data[9][4]} />
-              <DisplayElement data={data[9][5]} />
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );

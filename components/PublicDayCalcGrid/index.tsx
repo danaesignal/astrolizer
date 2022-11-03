@@ -75,7 +75,7 @@ export const PublicDayCalcGrid: NextPage<Props> = (props) => {
         <div>
           <div className={styles.section} style={{ marginTop: "2rem" }}>
             <div className={styles.row}>
-              <Label customLabel="Client" />
+              <Label customLabel="Date" />
             </div>
             <div className={styles.row}>
               <div className={styles.column}>
@@ -114,7 +114,7 @@ export const PublicDayCalcGrid: NextPage<Props> = (props) => {
               <DisplayElement customLabel="Mewa" data={data[6][0]} />
             </div>
             <div className={styles.row}>
-              <DisplayElement customLabel="Parkha" data={data[6][2]} />
+              <DisplayElement customLabel="Parkha" data={data[6][1]} />
             </div>
           </div>
         </div>

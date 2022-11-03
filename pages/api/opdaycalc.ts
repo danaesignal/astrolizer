@@ -37,7 +37,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       message: "Request was successful",
       payload: {
         natal: natalReportJSON,
-        operatorDayCalc: operatorDayCalcReportJSON,
+        dayCalc: operatorDayCalcReportJSON,
       },
     });
   } catch {
@@ -46,8 +46,8 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       message:
         "Malformed or improper request. Please check your input and try again.",
       payload: {
-        natal: natalReportRequest,
-        request: operatorDayCalcReportRequest,
+        natalRequest: natalReportRequest,
+        requestRequest: operatorDayCalcReportRequest,
       },
     });
   }

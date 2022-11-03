@@ -17,7 +17,6 @@ export enum dataKeys {
 }
 
 const DayCalc: NextPage = () => {
-  const [data, setData] = useState();
   const [calcData, setCalcData] = useState();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -32,10 +31,10 @@ const DayCalc: NextPage = () => {
   };
 
   const resetFormData = () => {
-    if (data) {
+    if (calcData) {
       setFormData({
-        calcDate: data[0][5]["content"],
-        calcTime: data[0][5]["content"],
+        calcDate: calcData[0][0]["content"],
+        calcTime: calcData[0][1]["content"],
       });
     } else {
       setFormData({
@@ -58,6 +57,7 @@ const DayCalc: NextPage = () => {
     let res = await fetch("/api/pubdaycalc", payload);
     let json = await res.json();
     if (json.code === 200) {
+      console.log(json.payload.dayCalc);
       setCalcData(json.payload.dayCalc);
     } else {
       alert(`${json.message}`);
@@ -65,7 +65,7 @@ const DayCalc: NextPage = () => {
     setLoading(false);
   };
 
-  if (!data && !calcData && !loading)
+  if (!calcData && !loading)
     return (
       <div className={styles.container}>
         <Navbar selected={pages.daycalc} />
@@ -82,7 +82,7 @@ const DayCalc: NextPage = () => {
         </div>
       </div>
     );
-  if (data && calcData) {
+  if (calcData) {
     return (
       <div className={styles.container}>
         <Navbar selected={pages.daycalc} />

@@ -21,7 +21,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       code: 200,
       message: "Request was successful",
       payload: {
-        publicDayCalc: publicDayCalcReportJSON,
+        dayCalc: publicDayCalcReportJSON,
       },
     });
   } catch {
