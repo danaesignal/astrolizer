@@ -1,4 +1,4 @@
-import { searchRequest } from "../interfaces/";
+import { searchRequest, upsertRequest } from "../interfaces/";
 export class Dataset<T extends { [key: string]: string }> {
   constructor(private data: T[]) {}
 
@@ -30,6 +30,11 @@ export class Dataset<T extends { [key: string]: string }> {
       result = this.data[offsetIndex];
     }
 
+    return result;
+  }
+
+  upsert(request: upsertRequest<T>): T | undefined {
+    const { query, range, record } = request;
     return result;
   }
 }

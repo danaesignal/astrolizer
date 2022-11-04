@@ -16,3 +16,4 @@ export * from "./yearsElements";
 export * from "./yogas";
 export * from "./searchRequest";
 export * from "./searchError";
+export * from "./upsertRequest";
