@@ -1,5 +1,6 @@
+import { searchRequest } from "./searchRequest";
+
 export type upsertRequest<T> = {
-  query: string;
-  range: string;
   record: T;
+  position: number | searchRequest;
 };
