@@ -24,7 +24,8 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         dayCalc: publicDayCalcReportJSON,
       },
     });
-  } catch {
+  } catch (err) {
+    console.log(err);
     res.status(400).send({
       code: 400,
       message:

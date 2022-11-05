@@ -65,9 +65,7 @@ export class Dataset<T extends { [key: string]: string }> {
   }
 
   async findAll(): Promise<T[] | undefined> {
-    const data = await this.read();
-
-    return data;
+    return this.read().then((data) => data);
   }
 
   async upsert(request: upsertRequest<T>): Promise<boolean> {
