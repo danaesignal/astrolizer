@@ -1,16 +1,16 @@
 import * as data from "../../data";
 import { cache, hour } from ".";
 
-export function dutsodWang(key: string[], cache: cache): string {
+export async function dutsodWang(key: string[], cache: cache): Promise<string> {
   const calcDate = key[1];
-  const dutsodHour = hour(key, cache);
+  const dutsodHour = await hour(key, cache);
 
   const recordOne = cache[`${calcDate}_dates_dayDate`]
     ? cache[`${calcDate}_dates_dayDate`]
-    : data.dates.search({ query: calcDate, range: "dayDate" });
+    : await data.dates.search({ query: calcDate, range: "dayDate" });
   const recordTwo = cache[`${dutsodHour}_gektsi2020_combined`]
     ? cache[`${dutsodHour}_gektsi2020_combined`]
-    : data.gektsi2020.search({
+    : await data.gektsi2020.search({
         query: dutsodHour,
         range: "combined",
       });

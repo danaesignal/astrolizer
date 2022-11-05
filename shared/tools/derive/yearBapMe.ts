@@ -3,13 +3,13 @@ import { cache } from ".";
 import { yearKyeMe } from "./yearKyeMe";
 import { yearBapMeDirection } from "./yearBapMeDirection";
 
-export function yearBapMe(
+export async function yearBapMe(
   key: string,
   age: string,
   gender: string,
   cache: cache
-): string {
-  const bapMeKey = yearKyeMe(key, cache);
+): Promise<string> {
+  const bapMeKey = await yearKyeMe(key, cache);
   const bapMeCount = (parseInt(age) % 9).toString();
   const bapMeDirection = yearBapMeDirection(
     gender.toLocaleLowerCase(),
@@ -18,7 +18,7 @@ export function yearBapMe(
 
   const record = cache[`${key}_mewas_mewa`]
     ? cache[`${key}_mewas_mewa`]
-    : data.mewas.search({ query: bapMeKey, range: "mewa" });
+    : await data.mewas.search({ query: bapMeKey, range: "mewa" });
 
   if (record) {
     cache[`${key}_mewas_mewa`] = record;

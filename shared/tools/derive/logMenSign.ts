@@ -1,22 +1,22 @@
 import * as data from "../../data";
 import { cache, yearWang } from ".";
 
-export function logMenSign(
+export async function logMenSign(
   age: string,
   gender: string,
   dateOfBirth: string,
   cache: cache
-): string {
-  const clientWang = yearWang(dateOfBirth, cache);
+): Promise<string> {
+  const clientWang = await yearWang(dateOfBirth, cache);
   const keyOne = (parseInt(age) % 10).toString() + gender[0].toUpperCase();
   const keyTwo = (parseInt(age) % 12).toString() + gender[0].toUpperCase();
 
   const recordOne = cache[`${keyOne}_logMen_logMen`]
     ? cache[`${keyOne}_logMen_logMen`]
-    : data.logMen.search({ query: keyOne, range: "logMen" });
+    : await data.logMen.search({ query: keyOne, range: "logMen" });
   const recordTwo = cache[`${keyTwo}_logMen_logMen`]
     ? cache[`${keyTwo}_logMen_logMen`]
-    : data.logMen.search({ query: keyTwo, range: "logMen" });
+    : await data.logMen.search({ query: keyTwo, range: "logMen" });
 
   if (recordOne && recordTwo) {
     cache[`${keyOne}_logMen_logMen`] = recordOne;

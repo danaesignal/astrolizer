@@ -1,11 +1,14 @@
 import * as data from "../../data";
 import { cache } from ".";
 
-export function kyePar(key: string, cache: cache): string {
+export async function kyePar(key: string, cache: cache): Promise<string> {
   const kyeParKey = parseInt(key) % 8;
   const record = cache[`${key}_birthParkha_count`]
     ? cache[`${key}_birthParkha_count`]
-    : data.birthParkha.search({ query: kyeParKey.toString(), range: "count" });
+    : await data.birthParkha.search({
+        query: kyeParKey.toString(),
+        range: "count",
+      });
 
   if (record) {
     cache[`${key}_birthParkha_count`] = record;

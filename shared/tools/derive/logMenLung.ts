@@ -2,18 +2,18 @@ import * as data from "../../data";
 import { cache } from ".";
 import { logMenSign } from ".";
 
-export function logMenLung(
+export async function logMenLung(
   age: string,
   gender: string,
   dateOfBirth: string,
   cache: cache
-): string {
-  const lungKey = logMenSign(age, gender, dateOfBirth, cache);
+): Promise<string> {
+  const lungKey = await logMenSign(age, gender, dateOfBirth, cache);
 
   if (lungKey) {
     const record = cache[`${lungKey}_yearsElements_combined_-7`]
       ? cache[`${lungKey}_yearsElements_combined_-7`]
-      : data.yearsElements.offsetSearch(
+      : await data.yearsElements.offsetSearch(
           { query: lungKey, range: "combined" },
           -7
         );

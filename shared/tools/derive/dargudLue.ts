@@ -1,17 +1,23 @@
 import * as data from "../../data";
 import { cache, month } from ".";
 
-export function dargudLue(dateOfBirth: string, cache: cache): string {
-  const monthCombined = month(dateOfBirth, cache);
+export async function dargudLue(
+  dateOfBirth: string,
+  cache: cache
+): Promise<string> {
+  const monthCombined = await month(dateOfBirth, cache);
   const animal = monthCombined.split(" ")[1];
 
   const recordOne = cache[`${animal}_dargudFunctions_dargudAnimals`]
     ? cache[`${animal}_dargudFunctions_dargudAnimals`]
-    : data.dargudFunctions.search({ query: animal, range: "dargudAnimals" });
+    : await data.dargudFunctions.search({
+        query: animal,
+        range: "dargudAnimals",
+      });
 
   const recordTwo = cache[`${monthCombined}_yearsElements_combined`]
     ? cache[`${monthCombined}_yearsElements_combined`]
-    : data.yearsElements.search({
+    : await data.yearsElements.search({
         query: monthCombined,
         range: "combined",
       });
@@ -24,7 +30,10 @@ export function dargudLue(dateOfBirth: string, cache: cache): string {
 
     const countRecord = cache[`${count}_dargudFunctions_dargudCount`]
       ? cache[`${count}_dargudFunctions_dargudCount`]
-      : data.dargudFunctions.search({ query: count, range: "dargudCount" });
+      : await data.dargudFunctions.search({
+          query: count,
+          range: "dargudCount",
+        });
 
     if (countRecord) {
       cache[`${count}_dargudFunctions_dargudCount`] = countRecord;

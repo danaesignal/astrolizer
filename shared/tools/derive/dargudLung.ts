@@ -1,17 +1,20 @@
 import * as data from "../../data";
 import { cache, hour } from ".";
 
-export function dargudLung(key: string[], cache: cache): string {
-  const hourCombined = hour(key, cache);
+export async function dargudLung(key: string[], cache: cache): Promise<string> {
+  const hourCombined = await hour(key, cache);
   const animal = hourCombined.split(" ")[1];
 
   const recordOne = cache[`${animal}_dargudFunctions_dargudAnimals`]
     ? cache[`${animal}_dargudFunctions_dargudAnimals`]
-    : data.dargudFunctions.search({ query: animal, range: "dargudAnimals" });
+    : await data.dargudFunctions.search({
+        query: animal,
+        range: "dargudAnimals",
+      });
 
   const recordTwo = cache[`${hourCombined}_yearsElements_combined`]
     ? cache[`${hourCombined}_yearsElements_combined`]
-    : data.yearsElements.search({
+    : await data.yearsElements.search({
         query: hourCombined,
         range: "combined",
       });
@@ -24,7 +27,10 @@ export function dargudLung(key: string[], cache: cache): string {
 
     const countRecord = cache[`${count}_dargudFunctions_dargudCount`]
       ? cache[`${count}_dargudFunctions_dargudCount`]
-      : data.dargudFunctions.search({ query: count, range: "dargudCount" });
+      : await data.dargudFunctions.search({
+          query: count,
+          range: "dargudCount",
+        });
 
     if (countRecord) {
       cache[`${count}_dargudFunctions_dargudCount`] = countRecord;

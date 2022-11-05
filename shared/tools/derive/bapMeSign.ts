@@ -1,17 +1,17 @@
 import * as data from "../../data";
 import { cache, yearBapMe } from ".";
 
-export function bapMeSign(
+export async function bapMeSign(
   dateOfBirth: string,
   age: string,
   gender: string,
   cache: cache
-): string {
-  const bapMe = yearBapMe(dateOfBirth, age, gender, cache);
+): Promise<string> {
+  const bapMe = await yearBapMe(dateOfBirth, age, gender, cache);
 
   const record = cache[`${bapMe}_mewas_c`]
     ? cache[`${bapMe}_mewas_c`]
-    : data.mewas.search({ query: bapMe, range: "c" });
+    : await data.mewas.search({ query: bapMe, range: "c" });
 
   if (record) {
     cache[`${bapMe}_mewas_c`] = record;

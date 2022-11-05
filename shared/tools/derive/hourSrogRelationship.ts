@@ -2,7 +2,7 @@ import * as data from "../../data";
 import { cache } from ".";
 import { hourBody } from ".";
 
-export function hourSrogRelationship(
+export async function hourSrogRelationship(
   client: string[],
   year: string[],
   cache: cache
@@ -14,7 +14,7 @@ export function hourSrogRelationship(
 
   const record = cache[`${lueRelationshipKey}_relationships_elemCombo`]
     ? cache[`${lueRelationshipKey}_relationships_elemCombo`]
-    : data.relationships.search({
+    : await data.relationships.search({
         query: lueRelationshipKey,
         range: "elemCombo",
       });

@@ -1,11 +1,11 @@
 import * as data from "../../data";
 import { cache } from ".";
 
-export function yearBapPar(key: string, cache: cache): string {
+export async function yearBapPar(key: string, cache: cache): Promise<string> {
   const bapParKey = (parseInt(key.slice(0, 4)) % 8).toString();
   const record = cache[`${key}_birthParkha_count`]
     ? cache[`${key}_birthParkha_count`]
-    : data.birthParkha.search({ query: bapParKey, range: "count" });
+    : await data.birthParkha.search({ query: bapParKey, range: "count" });
 
   if (record) {
     cache[`${key}_birthParkha_count`] = record;

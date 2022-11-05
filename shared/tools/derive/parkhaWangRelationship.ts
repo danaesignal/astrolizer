@@ -1,15 +1,15 @@
 import * as data from "../../data";
 import { cache, yearBapPar, yearWang } from ".";
 
-export function parkhaWangRelationship(
+export async function parkhaWangRelationship(
   dateOfBirth: string,
   cache: cache
-): string {
+): Promise<string> {
   const wang = yearWang(dateOfBirth, cache);
-  const bapPar = yearBapPar(dateOfBirth, cache);
+  const bapPar = await yearBapPar(dateOfBirth, cache);
   const recordOne = cache[`${bapPar}_birthParkha_kye-Parkha`]
     ? cache[`${bapPar}_birthParkha_kye-Parkha`]
-    : data.birthParkha.search({ query: bapPar, range: "kye-Parkha" });
+    : await data.birthParkha.search({ query: bapPar, range: "kye-Parkha" });
 
   if (recordOne) {
     cache[`${bapPar}_birthParkha_kye-Parkha`] = recordOne;
@@ -17,7 +17,7 @@ export function parkhaWangRelationship(
 
     const recordTwo = cache[`${wang + element}_relationships_elemCombo`]
       ? cache[`${wang + element}_relationships_elemCombo`]
-      : data.relationships.search({
+      : await data.relationships.search({
           query: wang + element,
           range: "elemCombo",
         });

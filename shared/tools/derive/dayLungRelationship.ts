@@ -2,7 +2,10 @@ import * as data from "../../data";
 import { cache } from ".";
 import { dayLuck } from ".";
 
-export function dayLungRelationship(key: string[], cache: cache) {
+export async function dayLungRelationship(
+  key: string[],
+  cache: cache
+): Promise<string> {
   const lungRelationshipKey = `${dayLuck(key[0], cache)}${dayLuck(
     key[1],
     cache
@@ -10,7 +13,7 @@ export function dayLungRelationship(key: string[], cache: cache) {
 
   const record = cache[`${lungRelationshipKey}_relationships_elemCombo`]
     ? cache[`${lungRelationshipKey}_relationships_elemCombo`]
-    : data.relationships.search({
+    : await data.relationships.search({
         query: lungRelationshipKey,
         range: "elemCombo",
       });

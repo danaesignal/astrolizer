@@ -1,12 +1,18 @@
 import * as data from "../../data";
 import { cache, lunarMansion } from ".";
 
-export function lunarMansionInterp(key: string, cache: cache) {
-  const lunar = lunarMansion(key, cache);
+export async function lunarMansionInterp(
+  key: string,
+  cache: cache
+): Promise<string> {
+  const lunar = await lunarMansion(key, cache);
 
   const record = cache[`${lunar}_lunarMansions_lunarMansionName`]
     ? cache[`${lunar}_lunarMansions_lunarMansionName`]
-    : data.lunarMansions.search({ query: lunar, range: "lunarMansionName" });
+    : await data.lunarMansions.search({
+        query: lunar,
+        range: "lunarMansionName",
+      });
 
   if (record) {
     cache[`${lunar}_lunarMansions_lunarMansionName`] = record;
