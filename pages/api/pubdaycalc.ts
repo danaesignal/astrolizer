@@ -5,7 +5,10 @@ import {
   PublicDayCalcRequest,
 } from "../../shared/tools/buildReport/publicDayCalc";
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   const body = JSON.parse(req.body);
   const { calcDate, calcTime } = body;
 
@@ -16,7 +19,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
   try {
     const publicDayCalcReport = new PublicDayCalc(publicDayCalcReportRequest);
-    const publicDayCalcReportJSON = publicDayCalcReport.generateReport();
+    const publicDayCalcReportJSON = await publicDayCalcReport.generateReport();
     res.status(200).send({
       code: 200,
       message: "Request was successful",

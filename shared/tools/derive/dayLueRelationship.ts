@@ -6,7 +6,7 @@ export async function dayLueRelationship(
   key: string[],
   cache: cache
 ): Promise<string> {
-  const lueRelationshipKey = `${dayBody(key[0], cache)}${dayBody(
+  const lueRelationshipKey = `${await dayBody(key[0], cache)}${await dayBody(
     key[1],
     cache
   )}`;

@@ -6,7 +6,7 @@ export async function dayLungRelationship(
   key: string[],
   cache: cache
 ): Promise<string> {
-  const lungRelationshipKey = `${dayLuck(key[0], cache)}${dayLuck(
+  const lungRelationshipKey = `${await dayLuck(key[0], cache)}${await dayLuck(
     key[1],
     cache
   )}`;

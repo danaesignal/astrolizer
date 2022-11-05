@@ -7,7 +7,7 @@ export async function hourLungRelationship(
   year: string[],
   cache: cache
 ) {
-  const lueRelationshipKey = `${hourLuck(client, cache)}${hourLuck(
+  const lueRelationshipKey = `${await hourLuck(client, cache)}${await hourLuck(
     year,
     cache
   )}`;

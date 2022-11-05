@@ -7,10 +7,10 @@ export async function hourWangRelationship(
   year: string[],
   cache: cache
 ) {
-  const lueRelationshipKey = `${hourPower(client, cache)}${hourPower(
-    year,
+  const lueRelationshipKey = `${await hourPower(
+    client,
     cache
-  )}`;
+  )}${await hourPower(year, cache)}`;
 
   const record = cache[`${lueRelationshipKey}_relationships_elemCombo`]
     ? cache[`${lueRelationshipKey}_relationships_elemCombo`]

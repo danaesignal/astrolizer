@@ -6,10 +6,10 @@ export async function monthLungRelationship(
   key: string[],
   cache: cache
 ): Promise<string> {
-  const lungRelationshipKey = `${monthLuck(key[0], cache)}${monthLuck(
-    key[1],
+  const lungRelationshipKey = `${await monthLuck(
+    key[0],
     cache
-  )}`;
+  )}${await monthLuck(key[1], cache)}`;
 
   const record = cache[`${lungRelationshipKey}_relationships_elemCombo`]
     ? cache[`${lungRelationshipKey}_relationships_elemCombo`]

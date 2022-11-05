@@ -6,7 +6,7 @@ export async function dayWangRelationship(
   key: string[],
   cache: cache
 ): Promise<string> {
-  const wangRelationshipKey = `${dayPower(key[0], cache)}${dayPower(
+  const wangRelationshipKey = `${await dayPower(key[0], cache)}${await dayPower(
     key[1],
     cache
   )}`;

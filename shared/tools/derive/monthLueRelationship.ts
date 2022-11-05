@@ -6,10 +6,10 @@ export async function monthLueRelationship(
   key: string[],
   cache: cache
 ): Promise<string> {
-  const lueRelationshipKey = `${monthBody(key[0], cache)}${monthBody(
-    key[1],
+  const lueRelationshipKey = `${await monthBody(
+    key[0],
     cache
-  )}`;
+  )}${await monthBody(key[1], cache)}`;
 
   const record = cache[`${lueRelationshipKey}_relationships_elemCombo`]
     ? cache[`${lueRelationshipKey}_relationships_elemCombo`]

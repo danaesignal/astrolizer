@@ -6,7 +6,10 @@ import {
   OperatorDayCalcRequest,
 } from "../../shared/tools/buildReport/operatorDayCalc";
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   const body = JSON.parse(req.body);
   const { dateOfBirth, motherYearOfBirth, timeOfBirth, calcDate, calcTime } =
     body;
@@ -30,8 +33,9 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     const operatorDayCalcReport = new OperatorDayCalc(
       operatorDayCalcReportRequest
     );
-    const natalReportJSON = natalReport.generateReport();
-    const operatorDayCalcReportJSON = operatorDayCalcReport.generateReport();
+    const natalReportJSON = await natalReport.generateReport();
+    const operatorDayCalcReportJSON =
+      await operatorDayCalcReport.generateReport();
     res.status(200).send({
       code: 200,
       message: "Request was successful",
@@ -40,7 +44,8 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         dayCalc: operatorDayCalcReportJSON,
       },
     });
-  } catch {
+  } catch (error) {
+    console.log(error);
     res.status(400).send({
       code: 400,
       message:

@@ -7,7 +7,7 @@ export async function hourSrogRelationship(
   year: string[],
   cache: cache
 ) {
-  const lueRelationshipKey = `${hourBody(client, cache)}${hourBody(
+  const lueRelationshipKey = `${await hourBody(client, cache)}${await hourBody(
     year,
     cache
   )}`;

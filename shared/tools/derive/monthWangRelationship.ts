@@ -6,10 +6,10 @@ export async function monthWangRelationship(
   key: string[],
   cache: cache
 ): Promise<string> {
-  const wangRelationshipKey = `${monthPower(key[0], cache)}${monthPower(
-    key[1],
+  const wangRelationshipKey = `${await monthPower(
+    key[0],
     cache
-  )}`;
+  )}${await monthPower(key[1], cache)}`;
 
   const record = cache[`${wangRelationshipKey}_relationships_elemCombo`]
     ? cache[`${wangRelationshipKey}_relationships_elemCombo`]

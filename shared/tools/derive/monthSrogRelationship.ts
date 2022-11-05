@@ -6,10 +6,10 @@ export async function monthSrogRelationship(
   key: string[],
   cache: cache
 ): Promise<string> {
-  const srogRelationshipKey = `${monthLifeForce(key[0], cache)}${monthLifeForce(
-    key[1],
+  const srogRelationshipKey = `${await monthLifeForce(
+    key[0],
     cache
-  )}`;
+  )}${await monthLifeForce(key[1], cache)}`;
 
   const record = cache[`${srogRelationshipKey}_relationships_elemCombo`]
     ? cache[`${srogRelationshipKey}_relationships_elemCombo`]
