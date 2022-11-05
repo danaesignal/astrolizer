@@ -1,4 +1,4 @@
-import * as data from "../../data";
+import * as data from "../../../db/definitions";
 import { cache, month } from ".";
 
 export async function monthLuck(key: string, cache: cache): Promise<string> {

@@ -1,4 +1,4 @@
-import * as data from "../../data";
+import * as data from "../../../db/definitions";
 import { cache, bapMeElement, yearLung } from ".";
 
 export async function bapMeLungRelationship(

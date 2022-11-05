@@ -1,4 +1,4 @@
-import * as data from "../../data";
+import * as data from "../../../db/definitions";
 import { cache } from ".";
 
 export async function lunarDayType(key: string, cache: cache): Promise<string> {

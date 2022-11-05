@@ -3,7 +3,7 @@ import { searchRequest, upsertRequest } from "../interfaces/";
 export class Dataset<T extends { [key: string]: string }> {
   constructor(private filename: string) {}
 
-  private path = `./shared/data/json/${this.filename}`;
+  private path = `./db/json/${this.filename}`;
 
   private read(): Promise<T[]> {
     return new Promise((resolve, reject) => {

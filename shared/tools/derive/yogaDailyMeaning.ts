@@ -1,4 +1,4 @@
-import * as data from "../../data";
+import * as data from "../../../db/definitions";
 import { cache, yoga } from ".";
 
 export async function yogaDailyMeaning(

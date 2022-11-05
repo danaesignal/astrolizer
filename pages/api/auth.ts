@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import { users as db } from "../../shared/data/users";
+import { users as db } from "../../db/definitions/users";
 import { users, upsertRequest } from "../../shared/interfaces";
 
 export default async function handler(

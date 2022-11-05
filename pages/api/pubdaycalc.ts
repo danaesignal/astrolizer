@@ -28,6 +28,7 @@ export default async function handler(
       },
     });
   } catch (err) {
+    console.log(err);
     res.status(400).send({
       code: 400,
       message:

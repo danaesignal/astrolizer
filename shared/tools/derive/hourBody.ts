@@ -1,4 +1,4 @@
-import * as data from "../../data";
+import * as data from "../../../db/definitions";
 import { cache, hour } from ".";
 
 export async function hourBody(key: string[], cache: cache): Promise<string> {

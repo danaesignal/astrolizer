@@ -1,4 +1,4 @@
-import * as data from "../../data";
+import * as data from "../../../db/definitions";
 import { cache, yearBapPar, yearSrog } from ".";
 
 export async function parkhaSrogRelationship(
