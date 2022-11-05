@@ -23,7 +23,6 @@ export default async function handler(
     });
   } catch (err) {
     // Return an appropriate error message on unsuccessful login
-    console.log(err);
     res.status(400).send({
       code: 400,
       message: "Something went wrong.",

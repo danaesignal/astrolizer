@@ -76,10 +76,7 @@ const DayCalc: NextPage = () => {
     if (json.code === 200) {
       setData(json.payload.natal);
       setCalcData(json.payload.dayCalc);
-      console.log(json.payload.dayCalc);
     } else {
-      console.log(`Response Code: ${json.code}`);
-      console.log(`Response Message: ${json.message}`);
       alert(`${json.message}`);
     }
     setLoading(false);

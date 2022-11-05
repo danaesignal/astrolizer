@@ -57,7 +57,6 @@ const DayCalc: NextPage = () => {
     let res = await fetch("/api/pubdaycalc", payload);
     let json = await res.json();
     if (json.code === 200) {
-      console.log(json.payload.dayCalc);
       setCalcData(json.payload.dayCalc);
     } else {
       alert(`${json.message}`);

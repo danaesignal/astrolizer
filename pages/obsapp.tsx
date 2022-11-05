@@ -79,8 +79,6 @@ const ObsApp: NextPage = () => {
     if (json.code === 200) {
       setData(json.payload);
     } else {
-      console.log(`Response Code: ${json.code}`);
-      console.log(`Response Message: ${json.message}`);
       alert(`${json.message}`);
     }
     setLoading(false);
