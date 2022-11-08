@@ -1,15 +1,15 @@
-import * as data from "../../data";
+import * as data from "../../../db/definitions";
 import { cache, yearBapPar, yearSrog } from ".";
 
-export function parkhaSrogRelationship(
+export async function parkhaSrogRelationship(
   dateOfBirth: string,
   cache: cache
-): string {
+): Promise<string> {
   const srog = yearSrog(dateOfBirth, cache);
-  const bapPar = yearBapPar(dateOfBirth, cache);
+  const bapPar = await yearBapPar(dateOfBirth, cache);
   const recordOne = cache[`${bapPar}_birthParkha_kye-Parkha`]
     ? cache[`${bapPar}_birthParkha_kye-Parkha`]
-    : data.birthParkha.search({ query: bapPar, range: "kye-Parkha" });
+    : await data.birthParkha.search({ query: bapPar, range: "kye-Parkha" });
 
   if (recordOne) {
     cache[`${bapPar}_birthParkha_kye-Parkha`] = recordOne;
@@ -17,7 +17,7 @@ export function parkhaSrogRelationship(
 
     const recordTwo = cache[`${srog + element}_relationships_elemCombo`]
       ? cache[`${srog + element}_relationships_elemCombo`]
-      : data.relationships.search({
+      : await data.relationships.search({
           query: srog + element,
           range: "elemCombo",
         });

@@ -1,4 +1,4 @@
-import * as data from "../../data";
+import * as data from "../../../db/definitions";
 import {
   cache,
   yearLifeForce,
@@ -19,25 +19,29 @@ import {
   hourLuck,
 } from ".";
 
-export function elementPercent(key: string[], element: string, cache: cache) {
+export async function elementPercent(
+  key: string[],
+  element: string,
+  cache: cache
+) {
   const dob = key[1];
   const elements = [
-    yearLifeForce(dob, cache),
-    yearBody(dob, cache),
-    yearPower(dob, cache),
-    yearLuck(dob, cache),
-    monthLifeForce(dob, cache),
-    monthBody(dob, cache),
-    monthPower(dob, cache),
-    monthLuck(dob, cache),
-    dayLifeForce(dob, cache),
-    dayBody(dob, cache),
-    dayPower(dob, cache),
-    dayLuck(dob, cache),
-    hourLifeForce(key, cache),
-    hourBody(key, cache),
-    hourPower(key, cache),
-    hourLuck(key, cache),
+    await yearLifeForce(dob, cache),
+    await yearBody(dob, cache),
+    await yearPower(dob, cache),
+    await yearLuck(dob, cache),
+    await monthLifeForce(dob, cache),
+    await monthBody(dob, cache),
+    await monthPower(dob, cache),
+    await monthLuck(dob, cache),
+    await dayLifeForce(dob, cache),
+    await dayBody(dob, cache),
+    await dayPower(dob, cache),
+    await dayLuck(dob, cache),
+    await hourLifeForce(key, cache),
+    await hourBody(key, cache),
+    await hourPower(key, cache),
+    await hourLuck(key, cache),
   ];
   const found = [];
 

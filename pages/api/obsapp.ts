@@ -2,7 +2,10 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { ObsApp, ObsAppRequest } from "../../shared/tools/buildReport/obsApp";
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   const body = JSON.parse(req.body);
   const {
     dateOfBirth,
@@ -24,7 +27,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
   try {
     const report = new ObsApp(reportRequest);
-    const reportJSON = report.generateReport();
+    const reportJSON = await report.generateReport();
     res.status(200).send({
       code: 200,
       message: "Request was successful",

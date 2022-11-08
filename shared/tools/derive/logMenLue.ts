@@ -1,19 +1,19 @@
-import * as data from "../../data";
+import * as data from "../../../db/definitions";
 import { cache } from ".";
 import { logMenSign } from ".";
 
-export function logMenLue(
+export async function logMenLue(
   age: string,
   gender: string,
   dateOfBirth: string,
   cache: cache
-): string {
-  const lueKey = logMenSign(age, gender, dateOfBirth, cache);
+): Promise<string> {
+  const lueKey = await logMenSign(age, gender, dateOfBirth, cache);
 
   if (lueKey) {
     const record = cache[`${lueKey}_yearsElements_combined_-4`]
       ? cache[`${lueKey}_yearsElements_combined_-4`]
-      : data.yearsElements.offsetSearch(
+      : await data.yearsElements.offsetSearch(
           { query: lueKey, range: "combined" },
           -4
         );

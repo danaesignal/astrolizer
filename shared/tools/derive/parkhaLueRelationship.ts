@@ -1,15 +1,15 @@
-import * as data from "../../data";
+import * as data from "../../../db/definitions";
 import { cache, yearBapPar, yearLue } from ".";
 
-export function parkhaLueRelationship(
+export async function parkhaLueRelationship(
   dateOfBirth: string,
   cache: cache
-): string {
-  const lue = yearLue(dateOfBirth, cache);
-  const bapPar = yearBapPar(dateOfBirth, cache);
+): Promise<string> {
+  const lue = await yearLue(dateOfBirth, cache);
+  const bapPar = await yearBapPar(dateOfBirth, cache);
   const recordOne = cache[`${bapPar}_birthParkha_kye-Parkha`]
     ? cache[`${bapPar}_birthParkha_kye-Parkha`]
-    : data.birthParkha.search({ query: bapPar, range: "kye-Parkha" });
+    : await data.birthParkha.search({ query: bapPar, range: "kye-Parkha" });
 
   if (recordOne) {
     cache[`${bapPar}_birthParkha_kye-Parkha`] = recordOne;
@@ -17,7 +17,7 @@ export function parkhaLueRelationship(
 
     const recordTwo = cache[`${lue + element}_relationships_elemCombo`]
       ? cache[`${lue + element}_relationships_elemCombo`]
-      : data.relationships.search({
+      : await data.relationships.search({
           query: lue + element,
           range: "elemCombo",
         });

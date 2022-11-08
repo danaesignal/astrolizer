@@ -16,7 +16,7 @@ export class Natal {
     };
   }
 
-  generateReport() {
+  async generateReport() {
     const cache: derive.cache = {};
     const report: { [key: string]: string }[][] = [];
     const sectionOne: { [key: string]: string }[] = [];
@@ -41,127 +41,161 @@ export class Natal {
       },
       { label: "Birth Year", content: birthYear },
       { label: "Count", content: count },
-      { label: "Year", content: derive.year(dateOfBirth, cache) },
-      { label: "Month", content: derive.monthCount(dateOfBirth, cache) },
-      { label: "Day", content: derive.dayCount(dateOfBirth, cache) },
+      { label: "Year", content: await derive.year(dateOfBirth, cache) },
+      { label: "Month", content: await derive.monthCount(dateOfBirth, cache) },
+      { label: "Day", content: await derive.dayCount(dateOfBirth, cache) },
       {
         label: "Hour",
-        content: derive.hour([timeOfBirth, dateOfBirth], cache),
+        content: await derive.hour([timeOfBirth, dateOfBirth], cache),
       }
     );
 
     sectionTwo.push(
       {
         label: "Lunar Mansion",
-        content: derive.lunarMansion(dateOfBirth, cache),
+        content: await derive.lunarMansion(dateOfBirth, cache),
       },
       {
         label: "Lunar Mansion Element",
-        content: derive.lunarMansionElement(dateOfBirth, cache),
+        content: await derive.lunarMansionElement(dateOfBirth, cache),
       },
       {
         label: "Lunar Day Type",
-        content: derive.lunarDayType(dateOfBirth, cache),
+        content: await derive.lunarDayType(dateOfBirth, cache),
       },
-      { label: "Weekday", content: derive.weekday(dateOfBirth, cache) },
+      { label: "Weekday", content: await derive.weekday(dateOfBirth, cache) },
       {
         label: "Weekday Element",
-        content: derive.weekdayElement(dateOfBirth, cache),
+        content: await derive.weekdayElement(dateOfBirth, cache),
       },
       {
         label: "Weekday Combination",
-        content: derive.weekdayCombination(dateOfBirth, cache),
+        content: await derive.weekdayCombination(dateOfBirth, cache),
       },
-      { label: "Conjunction", content: derive.conjunction(dateOfBirth, cache) },
+      {
+        label: "Conjunction",
+        content: await derive.conjunction(dateOfBirth, cache),
+      },
       {
         label: "Conjunction Text",
-        content: derive.conjunctionText(dateOfBirth, cache),
+        content: await derive.conjunctionText(dateOfBirth, cache),
       },
-      { label: "Yoga", content: derive.yoga(dateOfBirth, cache) },
+      { label: "Yoga", content: await derive.yoga(dateOfBirth, cache) },
       {
         label: "Yoga Text",
-        content: derive.yogaNatalMeaning(dateOfBirth, cache),
+        content: await derive.yogaNatalMeaning(dateOfBirth, cache),
       }
     );
 
     sectionThree.push(
-      { label: "Year Sign", content: derive.year(dateOfBirth, cache) },
-      { label: "Year Gender", content: derive.yearGender(dateOfBirth, cache) },
+      { label: "Year Sign", content: await derive.year(dateOfBirth, cache) },
+      {
+        label: "Year Gender",
+        content: await derive.yearGender(dateOfBirth, cache),
+      },
       {
         label: "Year Life-Force",
-        content: derive.yearLifeForce(dateOfBirth, cache),
+        content: await derive.yearLifeForce(dateOfBirth, cache),
       },
-      { label: "Year Body", content: derive.yearBody(dateOfBirth, cache) },
-      { label: "Year Power", content: derive.yearPower(dateOfBirth, cache) },
-      { label: "Year Luck", content: derive.yearLuck(dateOfBirth, cache) },
-      { label: "Month Sign", content: derive.month(dateOfBirth, cache) },
+      {
+        label: "Year Body",
+        content: await derive.yearBody(dateOfBirth, cache),
+      },
+      {
+        label: "Year Power",
+        content: await derive.yearPower(dateOfBirth, cache),
+      },
+      {
+        label: "Year Luck",
+        content: await derive.yearLuck(dateOfBirth, cache),
+      },
+      { label: "Month Sign", content: await derive.month(dateOfBirth, cache) },
       {
         label: "Month Gender",
-        content: derive.monthGender(dateOfBirth, cache),
+        content: await derive.monthGender(dateOfBirth, cache),
       },
       {
         label: "Month Life-Force",
-        content: derive.monthLifeForce(dateOfBirth, cache),
+        content: await derive.monthLifeForce(dateOfBirth, cache),
       },
-      { label: "Month Body", content: derive.monthBody(dateOfBirth, cache) },
-      { label: "Month Power", content: derive.monthPower(dateOfBirth, cache) },
-      { label: "Month Luck", content: derive.monthLuck(dateOfBirth, cache) },
-      { label: "Day Sign", content: derive.day(dateOfBirth, cache) },
-      { label: "Day Gender", content: derive.dayGender(dateOfBirth, cache) },
+      {
+        label: "Month Body",
+        content: await derive.monthBody(dateOfBirth, cache),
+      },
+      {
+        label: "Month Power",
+        content: await derive.monthPower(dateOfBirth, cache),
+      },
+      {
+        label: "Month Luck",
+        content: await derive.monthLuck(dateOfBirth, cache),
+      },
+      { label: "Day Sign", content: await derive.day(dateOfBirth, cache) },
+      {
+        label: "Day Gender",
+        content: await derive.dayGender(dateOfBirth, cache),
+      },
       {
         label: "Day Life-Force",
-        content: derive.dayLifeForce(dateOfBirth, cache),
+        content: await derive.dayLifeForce(dateOfBirth, cache),
       },
-      { label: "Day Body", content: derive.dayBody(dateOfBirth, cache) },
-      { label: "Day Power", content: derive.dayPower(dateOfBirth, cache) },
-      { label: "Day Luck", content: derive.dayLuck(dateOfBirth, cache) },
+      { label: "Day Body", content: await derive.dayBody(dateOfBirth, cache) },
+      {
+        label: "Day Power",
+        content: await derive.dayPower(dateOfBirth, cache),
+      },
+      { label: "Day Luck", content: await derive.dayLuck(dateOfBirth, cache) },
       {
         label: "Hour Sign",
-        content: derive.hour([timeOfBirth, dateOfBirth], cache),
+        content: await derive.hour([timeOfBirth, dateOfBirth], cache),
       },
       {
         label: "Hour Gender",
-        content: derive.hourGender([timeOfBirth, dateOfBirth], cache),
+        content: await derive.hourGender([timeOfBirth, dateOfBirth], cache),
       },
       {
         label: "Hour Life-Force",
-        content: derive.hourLifeForce([timeOfBirth, dateOfBirth], cache),
+        content: await derive.hourLifeForce([timeOfBirth, dateOfBirth], cache),
       },
       {
         label: "Hour Body",
-        content: derive.hourBody([timeOfBirth, dateOfBirth], cache),
+        content: await derive.hourBody([timeOfBirth, dateOfBirth], cache),
       },
       {
         label: "Hour Power",
-        content: derive.hourPower([timeOfBirth, dateOfBirth], cache),
+        content: await derive.hourPower([timeOfBirth, dateOfBirth], cache),
       },
       {
         label: "Hour Luck",
-        content: derive.hourLuck([timeOfBirth, dateOfBirth], cache),
+        content: await derive.hourLuck([timeOfBirth, dateOfBirth], cache),
       }
     );
 
     sectionFour.push(
       {
         label: "Birth Year Mewa",
-        content: derive.yearMewa(dateOfBirth, cache),
+        content: await derive.yearMewa(dateOfBirth, cache),
       },
       {
         label: "Birth Day Mewa",
-        content: derive.dayMewa(dateOfBirth, cache),
+        content: await derive.dayMewa(dateOfBirth, cache),
       },
-      { label: "Kye-Parkha", content: derive.kyeParkha(count, cache) },
+      { label: "Kye-Parkha", content: await derive.kyeParkha(count, cache) },
       {
         label: "Birth-Day Parkha",
-        content: derive.dayParkha(dateOfBirth, cache),
+        content: await derive.dayParkha(dateOfBirth, cache),
       },
       {
         label: "Wood Count",
-        content: derive.elementCount([timeOfBirth, dateOfBirth], "Wood", cache),
+        content: await derive.elementCount(
+          [timeOfBirth, dateOfBirth],
+          "Wood",
+          cache
+        ),
       },
       {
         label: "Wood Percent",
-        content: derive.elementPercent(
+        content: await derive.elementPercent(
           [timeOfBirth, dateOfBirth],
           "Wood",
           cache
@@ -169,11 +203,15 @@ export class Natal {
       },
       {
         label: "Fire Count",
-        content: derive.elementCount([timeOfBirth, dateOfBirth], "Fire", cache),
+        content: await derive.elementCount(
+          [timeOfBirth, dateOfBirth],
+          "Fire",
+          cache
+        ),
       },
       {
         label: "Fire Percent",
-        content: derive.elementPercent(
+        content: await derive.elementPercent(
           [timeOfBirth, dateOfBirth],
           "Fire",
           cache
@@ -181,7 +219,7 @@ export class Natal {
       },
       {
         label: "Earth Count",
-        content: derive.elementCount(
+        content: await derive.elementCount(
           [timeOfBirth, dateOfBirth],
           "Earth",
           cache
@@ -189,7 +227,7 @@ export class Natal {
       },
       {
         label: "Earth Percent",
-        content: derive.elementPercent(
+        content: await derive.elementPercent(
           [timeOfBirth, dateOfBirth],
           "Earth",
           cache
@@ -197,7 +235,7 @@ export class Natal {
       },
       {
         label: "Metal Count",
-        content: derive.elementCount(
+        content: await derive.elementCount(
           [timeOfBirth, dateOfBirth],
           "Metal",
           cache
@@ -205,7 +243,7 @@ export class Natal {
       },
       {
         label: "Metal Percent",
-        content: derive.elementPercent(
+        content: await derive.elementPercent(
           [timeOfBirth, dateOfBirth],
           "Metal",
           cache
@@ -213,7 +251,7 @@ export class Natal {
       },
       {
         label: "Water Count",
-        content: derive.elementCount(
+        content: await derive.elementCount(
           [timeOfBirth, dateOfBirth],
           "Water",
           cache
@@ -221,7 +259,7 @@ export class Natal {
       },
       {
         label: "Water Percent",
-        content: derive.elementPercent(
+        content: await derive.elementPercent(
           [timeOfBirth, dateOfBirth],
           "Water",
           cache
@@ -230,23 +268,38 @@ export class Natal {
     );
 
     sectionFive.push(
-      { label: "Best Day", content: derive.bestDay(dateOfBirth, cache) },
-      { label: "Good Day", content: derive.goodDay(dateOfBirth, cache) },
-      { label: "Worst Day", content: derive.worstDay(dateOfBirth, cache) },
-      { label: "Basis", content: derive.basis(dateOfBirth, cache) },
-      { label: "Power", content: derive.power(dateOfBirth, cache) },
-      { label: "Success", content: derive.success(dateOfBirth, cache) },
-      { label: "Obstacle", content: derive.obstacle(dateOfBirth, cache) },
-      { label: "Disturbance", content: derive.disturbance(dateOfBirth, cache) },
-      { label: "Enemy", content: derive.enemy(dateOfBirth, cache) },
-      { label: "Lue Star", content: derive.lueStar(dateOfBirth, cache) },
-      { label: "Srog Star", content: derive.srogStar(dateOfBirth, cache) },
-      { label: "Wang Star", content: derive.wangStar(dateOfBirth, cache) },
-      { label: "Kek Star", content: derive.kekStar(dateOfBirth, cache) },
-      { label: "Demon Star", content: derive.demonStar(dateOfBirth, cache) },
+      { label: "Best Day", content: await derive.bestDay(dateOfBirth, cache) },
+      { label: "Good Day", content: await derive.goodDay(dateOfBirth, cache) },
+      {
+        label: "Worst Day",
+        content: await derive.worstDay(dateOfBirth, cache),
+      },
+      { label: "Basis", content: await derive.basis(dateOfBirth, cache) },
+      { label: "Power", content: await derive.power(dateOfBirth, cache) },
+      { label: "Success", content: await derive.success(dateOfBirth, cache) },
+      { label: "Obstacle", content: await derive.obstacle(dateOfBirth, cache) },
+      {
+        label: "Disturbance",
+        content: await derive.disturbance(dateOfBirth, cache),
+      },
+      { label: "Enemy", content: await derive.enemy(dateOfBirth, cache) },
+      { label: "Lue Star", content: await derive.lueStar(dateOfBirth, cache) },
+      {
+        label: "Srog Star",
+        content: await derive.srogStar(dateOfBirth, cache),
+      },
+      {
+        label: "Wang Star",
+        content: await derive.wangStar(dateOfBirth, cache),
+      },
+      { label: "Kek Star", content: await derive.kekStar(dateOfBirth, cache) },
+      {
+        label: "Demon Star",
+        content: await derive.demonStar(dateOfBirth, cache),
+      },
       {
         label: "Destruction Star",
-        content: derive.destructionStar(dateOfBirth, cache),
+        content: await derive.destructionStar(dateOfBirth, cache),
       }
     );
 

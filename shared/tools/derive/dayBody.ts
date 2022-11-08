@@ -1,12 +1,12 @@
-import * as data from "../../data";
+import * as data from "../../../db/definitions";
 import { cache, day } from ".";
 
-export function dayBody(key: string, cache: cache) {
-  const daySign = day(key, cache);
+export async function dayBody(key: string, cache: cache): Promise<string> {
+  const daySign = await day(key, cache);
 
   const record = cache[`${daySign}_yearsElements_combined`]
     ? cache[`${daySign}_yearsElements_combined`]
-    : data.yearsElements.search({ query: daySign, range: "combined" });
+    : await data.yearsElements.search({ query: daySign, range: "combined" });
 
   if (record) {
     cache[`${daySign}_yearsElements_combined`] = record;

@@ -1,11 +1,11 @@
-import * as data from "../../data";
+import * as data from "../../../db/definitions";
 import { cache, year } from ".";
 
-export function yearGender(key: string, cache: cache) {
-  const yearResult = year(key, cache);
+export async function yearGender(key: string, cache: cache): Promise<string> {
+  const yearResult = await year(key, cache);
   const record = cache[`${yearResult}_yearsElements_combined`]
     ? cache[`${yearResult}_yearsElements_combined`]
-    : data.yearsElements.search({ query: yearResult, range: "combined" });
+    : await data.yearsElements.search({ query: yearResult, range: "combined" });
 
   if (record) {
     cache[`${yearResult}_yearsElements_combined`] = record;

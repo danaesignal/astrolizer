@@ -1,12 +1,15 @@
-import * as data from "../../data";
+import * as data from "../../../db/definitions";
 import { cache, yoga } from ".";
 
-export function yogaDailyMeaning(key: string, cache: cache) {
-  const yogaKey = yoga(key, cache);
+export async function yogaDailyMeaning(
+  key: string,
+  cache: cache
+): Promise<string> {
+  const yogaKey = await yoga(key, cache);
 
   const record = cache[`${yogaKey}_yogas_yogas`]
     ? cache[`${yogaKey}_yogas_yogas`]
-    : data.yogas.search({ query: yogaKey, range: "yogas" });
+    : await data.yogas.search({ query: yogaKey, range: "yogas" });
 
   if (record) {
     cache[`${yogaKey}_yogas_yogas`] = record;

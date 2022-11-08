@@ -1,10 +1,10 @@
-import * as data from "../../data";
+import * as data from "../../../db/definitions";
 import { cache } from ".";
 
-export function yearKyeMe(key: string, cache: cache): string {
+export async function yearKyeMe(key: string, cache: cache): Promise<string> {
   const record = cache[`${key}_dates_dayDate`]
     ? cache[`${key}_dates_dayDate`]
-    : data.dates.search({ query: key, range: "dayDate" });
+    : await data.dates.search({ query: key, range: "dayDate" });
 
   if (record) {
     cache[`${key}_dates_dayDate`] = record;

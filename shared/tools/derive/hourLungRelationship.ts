@@ -1,20 +1,20 @@
-import * as data from "../../data";
+import * as data from "../../../db/definitions";
 import { cache } from ".";
 import { hourLuck } from ".";
 
-export function hourLungRelationship(
+export async function hourLungRelationship(
   client: string[],
   year: string[],
   cache: cache
 ) {
-  const lueRelationshipKey = `${hourLuck(client, cache)}${hourLuck(
+  const lueRelationshipKey = `${await hourLuck(client, cache)}${await hourLuck(
     year,
     cache
   )}`;
 
   const record = cache[`${lueRelationshipKey}_relationships_elemCombo`]
     ? cache[`${lueRelationshipKey}_relationships_elemCombo`]
-    : data.relationships.search({
+    : await data.relationships.search({
         query: lueRelationshipKey,
         range: "elemCombo",
       });

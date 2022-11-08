@@ -1,12 +1,15 @@
-import * as data from "../../data";
+import * as data from "../../../db/definitions";
 import { cache, hour } from ".";
 
-export function hourLifeForce(key: string[], cache: cache) {
-  const hourSign = hour(key, cache);
+export async function hourLifeForce(
+  key: string[],
+  cache: cache
+): Promise<string> {
+  const hourSign = await hour(key, cache);
 
   const record = cache[`${hourSign}_yearsElements_combined`]
     ? cache[`${hourSign}_yearsElements_combined`]
-    : data.yearsElements.search({ query: hourSign, range: "combined" });
+    : await data.yearsElements.search({ query: hourSign, range: "combined" });
 
   if (record) {
     cache[`${hourSign}_yearsElements_combined`] = record;

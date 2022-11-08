@@ -1,16 +1,16 @@
-import * as data from "../../data";
+import * as data from "../../../db/definitions";
 import { cache, logMenLung, yearLung } from ".";
 
-export function lmLungRelationship(
+export async function lmLungRelationship(
   age: string,
   gender: string,
   dateOfBirth: string,
   cache: cache
-): string {
-  const keyOne = logMenLung(age, gender, dateOfBirth, cache);
+): Promise<string> {
+  const keyOne = await logMenLung(age, gender, dateOfBirth, cache);
   const recordOne = cache[`${keyOne}_yearsElements_combined`]
     ? cache[`${keyOne}_yearsElements_combined`]
-    : data.yearsElements.search({
+    : await data.yearsElements.search({
         query: keyOne,
         range: "combined",
       });
@@ -21,7 +21,7 @@ export function lmLungRelationship(
 
     const recordTwo = cache[`${keyTwo + resultOne}_relationships_elemCombo`]
       ? cache[`${keyTwo + resultOne}_relationships_elemCombo`]
-      : data.relationships.search({
+      : await data.relationships.search({
           query: `${keyTwo + resultOne}`,
           range: `elemCombo`,
         });

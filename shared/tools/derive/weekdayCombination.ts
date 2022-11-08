@@ -1,12 +1,18 @@
-import * as data from "../../data";
+import * as data from "../../../db/definitions";
 import { cache, lunarDayType } from ".";
 
-export function weekdayCombination(key: string, cache: cache) {
-  const dayType = lunarDayType(key, cache);
+export async function weekdayCombination(
+  key: string,
+  cache: cache
+): Promise<string> {
+  const dayType = await lunarDayType(key, cache);
 
   const record = cache[`${dayType}_dayCombinations_dayCombinations`]
     ? cache[`${dayType}_dayCombinations_dayCombinations`]
-    : data.dayCombinations.search({ query: dayType, range: "dayCombinations" });
+    : await data.dayCombinations.search({
+        query: dayType,
+        range: "dayCombinations",
+      });
 
   if (record) {
     cache[`${dayType}_dayCombinations_dayCombinations`] = record;

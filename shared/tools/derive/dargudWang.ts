@@ -1,17 +1,23 @@
-import * as data from "../../data";
+import * as data from "../../../db/definitions";
 import { cache, day } from ".";
 
-export function dargudWang(dateOfBirth: string, cache: cache): string {
-  const dayCombined = day(dateOfBirth, cache);
+export async function dargudWang(
+  dateOfBirth: string,
+  cache: cache
+): Promise<string> {
+  const dayCombined = await day(dateOfBirth, cache);
   const animal = dayCombined.split(" ")[1];
 
   const recordOne = cache[`${animal}_dargudFunctions_dargudAnimals`]
     ? cache[`${animal}_dargudFunctions_dargudAnimals`]
-    : data.dargudFunctions.search({ query: animal, range: "dargudAnimals" });
+    : await data.dargudFunctions.search({
+        query: animal,
+        range: "dargudAnimals",
+      });
 
   const recordTwo = cache[`${dayCombined}_yearsElements_combined`]
     ? cache[`${dayCombined}_yearsElements_combined`]
-    : data.yearsElements.search({
+    : await data.yearsElements.search({
         query: dayCombined,
         range: "combined",
       });
@@ -24,7 +30,10 @@ export function dargudWang(dateOfBirth: string, cache: cache): string {
 
     const countRecord = cache[`${count}_dargudFunctions_dargudCount`]
       ? cache[`${count}_dargudFunctions_dargudCount`]
-      : data.dargudFunctions.search({ query: count, range: "dargudCount" });
+      : await data.dargudFunctions.search({
+          query: count,
+          range: "dargudCount",
+        });
 
     if (countRecord) {
       cache[`${count}_dargudFunctions_dargudCount`] = countRecord;

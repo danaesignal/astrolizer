@@ -1,18 +1,18 @@
-import * as data from "../../data";
+import * as data from "../../../db/definitions";
 import { cache, bapMeElement, yearLue } from ".";
 
-export function bapMeLueRelationship(
+export async function bapMeLueRelationship(
   dateOfBirth: string,
   age: string,
   gender: string,
   cache: cache
-): string {
-  const yearElement = yearLue(dateOfBirth, cache);
-  const bapMeEle = bapMeElement(dateOfBirth, age, gender, cache);
+): Promise<string> {
+  const yearElement = await yearLue(dateOfBirth, cache);
+  const bapMeEle = await bapMeElement(dateOfBirth, age, gender, cache);
 
   const record = cache[`${yearElement + bapMeEle}_relationships_combined`]
     ? cache[`${yearElement + bapMeEle}_relationships_combined`]
-    : data.relationships.search({
+    : await data.relationships.search({
         query: yearElement + bapMeEle,
         range: "elemCombo",
       });

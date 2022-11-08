@@ -20,7 +20,7 @@ export class OperatorDayCalc {
     };
   }
 
-  generateReport() {
+  async generateReport() {
     const cache: derive.cache = {};
     const report: { [key: string]: string }[][] = [];
     const sectionOne: { [key: string]: string }[] = [];
@@ -50,218 +50,287 @@ export class OperatorDayCalc {
     sectionTwo.push(
       {
         label: "Lunar Mansion",
-        content: derive.lunarMansion(calcDate, cache),
+        content: await derive.lunarMansion(calcDate, cache),
       },
       {
         label: "Lunar Mansion Interpretation",
-        content: derive.lunarMansionInterp(calcDate, cache),
+        content: await derive.lunarMansionInterp(calcDate, cache),
       },
       {
         label: "Lunar Date",
-        content: derive.lunarDate(calcDate, cache),
+        content: await derive.lunarDate(calcDate, cache),
       },
-      { label: "Conjunction", content: derive.conjunction(calcDate, cache) },
+      {
+        label: "Conjunction",
+        content: await derive.conjunction(calcDate, cache),
+      },
       {
         label: "Conjunction Text",
-        content: derive.conjunctionText(calcDate, cache),
+        content: await derive.conjunctionText(calcDate, cache),
       },
       {
         label: "Weekday",
-        content: derive.weekday(calcDate, cache),
+        content: await derive.weekday(calcDate, cache),
       },
-      { label: "Yoga", content: derive.yoga(calcDate, cache) },
+      { label: "Yoga", content: await derive.yoga(calcDate, cache) },
       {
         label: "Yoga Daily Meaning",
-        content: derive.yogaDailyMeaning(calcDate, cache),
+        content: await derive.yogaDailyMeaning(calcDate, cache),
       },
       {
         label: "Lunar Day Type",
-        content: derive.lunarDayType(calcDate, cache),
+        content: await derive.lunarDayType(calcDate, cache),
       },
       {
         label: "Weekday Combination",
-        content: derive.weekdayCombination(calcDate, cache),
+        content: await derive.weekdayCombination(calcDate, cache),
       },
       {
         label: "Lunar Day Character",
-        content: derive.lunarDayCharacter(calcDate, cache),
+        content: await derive.lunarDayCharacter(calcDate, cache),
       },
       {
         label: "Lunar Day Travel",
-        content: derive.lunarDayTravel(calcDate, cache),
+        content: await derive.lunarDayTravel(calcDate, cache),
       }
     );
 
     sectionThree.push(
-      { label: "Client Year Sign", content: derive.year(dateOfBirth, cache) },
+      {
+        label: "Client Year Sign",
+        content: await derive.year(dateOfBirth, cache),
+      },
       {
         label: "Client Year Srog",
-        content: derive.yearSrog(dateOfBirth, cache),
+        content: await derive.yearSrog(dateOfBirth, cache),
       },
-      { label: "Client Year Lue", content: derive.yearLue(dateOfBirth, cache) },
+      {
+        label: "Client Year Lue",
+        content: await derive.yearLue(dateOfBirth, cache),
+      },
       {
         label: "Client Year Wang",
-        content: derive.yearWang(dateOfBirth, cache),
+        content: await derive.yearWang(dateOfBirth, cache),
       },
       {
         label: "Client Year Lung",
-        content: derive.yearLung(dateOfBirth, cache),
+        content: await derive.yearLung(dateOfBirth, cache),
       },
-      { label: "Date Year Sign", content: derive.year(calcDate, cache) },
-      { label: "Date Year Srog", content: derive.yearSrog(calcDate, cache) },
-      { label: "Date Year Lue", content: derive.yearLue(calcDate, cache) },
-      { label: "Date Year Wang", content: derive.yearWang(calcDate, cache) },
-      { label: "Date Year Lung", content: derive.yearLung(calcDate, cache) },
+      { label: "Date Year Sign", content: await derive.year(calcDate, cache) },
+      {
+        label: "Date Year Srog",
+        content: await derive.yearSrog(calcDate, cache),
+      },
+      {
+        label: "Date Year Lue",
+        content: await derive.yearLue(calcDate, cache),
+      },
+      {
+        label: "Date Year Wang",
+        content: await derive.yearWang(calcDate, cache),
+      },
+      {
+        label: "Date Year Lung",
+        content: await derive.yearLung(calcDate, cache),
+      },
       {
         label: "Year Srog Relationship",
-        content: derive.srogRelationship([dateOfBirth, calcDate], cache),
+        content: await derive.srogRelationship([dateOfBirth, calcDate], cache),
       },
       {
         label: "Year Lue Relationship",
-        content: derive.lueRelationship([dateOfBirth, calcDate], cache),
+        content: await derive.lueRelationship([dateOfBirth, calcDate], cache),
       },
       {
         label: "Year Wang Relationship",
-        content: derive.wangRelationship([dateOfBirth, calcDate], cache),
+        content: await derive.wangRelationship([dateOfBirth, calcDate], cache),
       },
       {
         label: "Year Lung Relationship",
-        content: derive.lungRelationship([dateOfBirth, calcDate], cache),
+        content: await derive.lungRelationship([dateOfBirth, calcDate], cache),
       }
     );
 
     sectionFour.push(
-      { label: "Client Month Sign", content: derive.month(dateOfBirth, cache) },
+      {
+        label: "Client Month Sign",
+        content: await derive.month(dateOfBirth, cache),
+      },
       {
         label: "Client Month Srog",
-        content: derive.monthLifeForce(dateOfBirth, cache),
+        content: await derive.monthLifeForce(dateOfBirth, cache),
       },
       {
         label: "Client Month Lue",
-        content: derive.monthBody(dateOfBirth, cache),
+        content: await derive.monthBody(dateOfBirth, cache),
       },
       {
         label: "Client Month Wang",
-        content: derive.monthPower(dateOfBirth, cache),
+        content: await derive.monthPower(dateOfBirth, cache),
       },
       {
         label: "Client Month Lung",
-        content: derive.monthLuck(dateOfBirth, cache),
+        content: await derive.monthLuck(dateOfBirth, cache),
       },
-      { label: "Date Month Sign", content: derive.month(calcDate, cache) },
+      {
+        label: "Date Month Sign",
+        content: await derive.month(calcDate, cache),
+      },
       {
         label: "Date Month Srog",
-        content: derive.monthLifeForce(calcDate, cache),
+        content: await derive.monthLifeForce(calcDate, cache),
       },
-      { label: "Date Month Lue", content: derive.monthBody(calcDate, cache) },
-      { label: "Date Month Wang", content: derive.monthPower(calcDate, cache) },
-      { label: "Date Month Lung", content: derive.monthLuck(calcDate, cache) },
+      {
+        label: "Date Month Lue",
+        content: await derive.monthBody(calcDate, cache),
+      },
+      {
+        label: "Date Month Wang",
+        content: await derive.monthPower(calcDate, cache),
+      },
+      {
+        label: "Date Month Lung",
+        content: await derive.monthLuck(calcDate, cache),
+      },
       {
         label: "Month Srog Relationship",
-        content: derive.monthSrogRelationship([dateOfBirth, calcDate], cache),
+        content: await derive.monthSrogRelationship(
+          [dateOfBirth, calcDate],
+          cache
+        ),
       },
       {
         label: "Month Lue Relationship",
-        content: derive.monthLueRelationship([dateOfBirth, calcDate], cache),
+        content: await derive.monthLueRelationship(
+          [dateOfBirth, calcDate],
+          cache
+        ),
       },
       {
         label: "Month Wang Relationship",
-        content: derive.monthWangRelationship([dateOfBirth, calcDate], cache),
+        content: await derive.monthWangRelationship(
+          [dateOfBirth, calcDate],
+          cache
+        ),
       },
       {
         label: "Month Lung Relationship",
-        content: derive.monthLungRelationship([dateOfBirth, calcDate], cache),
+        content: await derive.monthLungRelationship(
+          [dateOfBirth, calcDate],
+          cache
+        ),
       }
     );
 
     sectionFive.push(
-      { label: "Client Day Sign", content: derive.day(dateOfBirth, cache) },
+      {
+        label: "Client Day Sign",
+        content: await derive.day(dateOfBirth, cache),
+      },
       {
         label: "Client Day Srog",
-        content: derive.dayLifeForce(dateOfBirth, cache),
+        content: await derive.dayLifeForce(dateOfBirth, cache),
       },
       {
         label: "Client Day Lue",
-        content: derive.dayBody(dateOfBirth, cache),
+        content: await derive.dayBody(dateOfBirth, cache),
       },
       {
         label: "Client Day Wang",
-        content: derive.dayPower(dateOfBirth, cache),
+        content: await derive.dayPower(dateOfBirth, cache),
       },
       {
         label: "Client Day Lung",
-        content: derive.dayLuck(dateOfBirth, cache),
+        content: await derive.dayLuck(dateOfBirth, cache),
       },
-      { label: "Date Day Sign", content: derive.day(calcDate, cache) },
+      { label: "Date Day Sign", content: await derive.day(calcDate, cache) },
       {
         label: "Date Day Srog",
-        content: derive.dayLifeForce(calcDate, cache),
+        content: await derive.dayLifeForce(calcDate, cache),
       },
-      { label: "Date Day Lue", content: derive.dayBody(calcDate, cache) },
-      { label: "Date Day Wang", content: derive.dayPower(calcDate, cache) },
-      { label: "Date Day Lung", content: derive.dayLuck(calcDate, cache) },
+      { label: "Date Day Lue", content: await derive.dayBody(calcDate, cache) },
+      {
+        label: "Date Day Wang",
+        content: await derive.dayPower(calcDate, cache),
+      },
+      {
+        label: "Date Day Lung",
+        content: await derive.dayLuck(calcDate, cache),
+      },
       {
         label: "Day Srog Relationship",
-        content: derive.daySrogRelationship([dateOfBirth, calcDate], cache),
+        content: await derive.daySrogRelationship(
+          [dateOfBirth, calcDate],
+          cache
+        ),
       },
       {
         label: "Day Lue Relationship",
-        content: derive.dayLueRelationship([dateOfBirth, calcDate], cache),
+        content: await derive.dayLueRelationship(
+          [dateOfBirth, calcDate],
+          cache
+        ),
       },
       {
         label: "Day Wang Relationship",
-        content: derive.dayWangRelationship([dateOfBirth, calcDate], cache),
+        content: await derive.dayWangRelationship(
+          [dateOfBirth, calcDate],
+          cache
+        ),
       },
       {
         label: "Day Lung Relationship",
-        content: derive.dayLungRelationship([dateOfBirth, calcDate], cache),
+        content: await derive.dayLungRelationship(
+          [dateOfBirth, calcDate],
+          cache
+        ),
       }
     );
 
     sectionSix.push(
       {
         label: "Client Hour Sign",
-        content: derive.hour([timeOfBirth, dateOfBirth], cache),
+        content: await derive.hour([timeOfBirth, dateOfBirth], cache),
       },
       {
         label: "Client Hour Srog",
-        content: derive.hourLifeForce([timeOfBirth, dateOfBirth], cache),
+        content: await derive.hourLifeForce([timeOfBirth, dateOfBirth], cache),
       },
       {
         label: "Client Hour Lue",
-        content: derive.hourBody([timeOfBirth, dateOfBirth], cache),
+        content: await derive.hourBody([timeOfBirth, dateOfBirth], cache),
       },
       {
         label: "Client Hour Wang",
-        content: derive.hourPower([timeOfBirth, dateOfBirth], cache),
+        content: await derive.hourPower([timeOfBirth, dateOfBirth], cache),
       },
       {
         label: "Client Hour Lung",
-        content: derive.hourLuck([timeOfBirth, dateOfBirth], cache),
+        content: await derive.hourLuck([timeOfBirth, dateOfBirth], cache),
       },
       {
         label: "Date Hour Sign",
-        content: derive.hour([calcTime, calcDate], cache),
+        content: await derive.hour([calcTime, calcDate], cache),
       },
       {
         label: "Date Hour Srog",
-        content: derive.hourLifeForce([calcTime, calcDate], cache),
+        content: await derive.hourLifeForce([calcTime, calcDate], cache),
       },
       {
         label: "Date Hour Lue",
-        content: derive.hourBody([calcTime, calcDate], cache),
+        content: await derive.hourBody([calcTime, calcDate], cache),
       },
       {
         label: "Date Hour Wang",
-        content: derive.hourPower([calcTime, calcDate], cache),
+        content: await derive.hourPower([calcTime, calcDate], cache),
       },
       {
         label: "Date Hour Lung",
-        content: derive.hourLuck([calcTime, calcDate], cache),
+        content: await derive.hourLuck([calcTime, calcDate], cache),
       },
       {
         label: "Hour Srog Relationship",
-        content: derive.hourSrogRelationship(
+        content: await derive.hourSrogRelationship(
           [timeOfBirth, dateOfBirth],
           [calcTime, calcDate],
           cache
@@ -269,7 +338,7 @@ export class OperatorDayCalc {
       },
       {
         label: "Hour Lue Relationship",
-        content: derive.hourLueRelationship(
+        content: await derive.hourLueRelationship(
           [timeOfBirth, dateOfBirth],
           [calcTime, calcDate],
           cache
@@ -277,7 +346,7 @@ export class OperatorDayCalc {
       },
       {
         label: "Hour Wang Relationship",
-        content: derive.hourWangRelationship(
+        content: await derive.hourWangRelationship(
           [timeOfBirth, dateOfBirth],
           [calcTime, calcDate],
           cache
@@ -285,7 +354,7 @@ export class OperatorDayCalc {
       },
       {
         label: "Hour Lung Relationship",
-        content: derive.hourLungRelationship(
+        content: await derive.hourLungRelationship(
           [timeOfBirth, dateOfBirth],
           [calcTime, calcDate],
           cache
@@ -296,44 +365,56 @@ export class OperatorDayCalc {
     sectionSeven.push(
       {
         label: "Client Day Mewa",
-        content: derive.dayMewa(dateOfBirth, cache),
+        content: await derive.dayMewa(dateOfBirth, cache),
       },
       {
         label: "Client Day Parkha",
-        content: derive.dayParkha(dateOfBirth, cache),
+        content: await derive.dayParkha(dateOfBirth, cache),
       },
       {
         label: "Date Day Mewa",
-        content: derive.dayMewa(calcDate, cache),
+        content: await derive.dayMewa(calcDate, cache),
       },
       {
         label: "Date Day Parkha",
-        content: derive.dayParkha(calcDate, cache),
+        content: await derive.dayParkha(calcDate, cache),
       }
     );
 
     sectionEight.push(
-      { label: "Best Day", content: derive.bestDay(dateOfBirth, cache) },
-      { label: "Good Day", content: derive.goodDay(dateOfBirth, cache) },
-      { label: "Worst Day", content: derive.worstDay(dateOfBirth, cache) }
+      { label: "Best Day", content: await derive.bestDay(dateOfBirth, cache) },
+      { label: "Good Day", content: await derive.goodDay(dateOfBirth, cache) },
+      { label: "Worst Day", content: await derive.worstDay(dateOfBirth, cache) }
     );
     sectionNine.push(
-      { label: "Basis", content: derive.basis(dateOfBirth, cache) },
-      { label: "Power", content: derive.power(dateOfBirth, cache) },
-      { label: "Success", content: derive.success(dateOfBirth, cache) },
-      { label: "Obstacle", content: derive.obstacle(dateOfBirth, cache) },
-      { label: "Disturbance", content: derive.disturbance(dateOfBirth, cache) },
-      { label: "Enemy", content: derive.enemy(dateOfBirth, cache) }
+      { label: "Basis", content: await derive.basis(dateOfBirth, cache) },
+      { label: "Power", content: await derive.power(dateOfBirth, cache) },
+      { label: "Success", content: await derive.success(dateOfBirth, cache) },
+      { label: "Obstacle", content: await derive.obstacle(dateOfBirth, cache) },
+      {
+        label: "Disturbance",
+        content: await derive.disturbance(dateOfBirth, cache),
+      },
+      { label: "Enemy", content: await derive.enemy(dateOfBirth, cache) }
     );
     sectionTen.push(
-      { label: "Lue Star", content: derive.lueStar(dateOfBirth, cache) },
-      { label: "Srog Star", content: derive.srogStar(dateOfBirth, cache) },
-      { label: "Wang Star", content: derive.wangStar(dateOfBirth, cache) },
-      { label: "Kek Star", content: derive.kekStar(dateOfBirth, cache) },
-      { label: "Demon Star", content: derive.demonStar(dateOfBirth, cache) },
+      { label: "Lue Star", content: await derive.lueStar(dateOfBirth, cache) },
+      {
+        label: "Srog Star",
+        content: await derive.srogStar(dateOfBirth, cache),
+      },
+      {
+        label: "Wang Star",
+        content: await derive.wangStar(dateOfBirth, cache),
+      },
+      { label: "Kek Star", content: await derive.kekStar(dateOfBirth, cache) },
+      {
+        label: "Demon Star",
+        content: await derive.demonStar(dateOfBirth, cache),
+      },
       {
         label: "Destruction Star",
-        content: derive.destructionStar(dateOfBirth, cache),
+        content: await derive.destructionStar(dateOfBirth, cache),
       }
     );
 

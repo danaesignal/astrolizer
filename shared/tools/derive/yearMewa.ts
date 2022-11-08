@@ -1,6 +1,6 @@
-import * as data from "../../data";
+import * as data from "../../../db/definitions";
 import { cache, yearKyeMe } from ".";
 
-export function yearMewa(key: string, cache: cache) {
+export async function yearMewa(key: string, cache: cache): Promise<string> {
   return yearKyeMe(key, cache);
 }

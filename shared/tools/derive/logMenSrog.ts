@@ -1,19 +1,19 @@
-import * as data from "../../data";
+import * as data from "../../../db/definitions";
 import { cache } from ".";
 import { logMenSign } from ".";
 
-export function logMenSrog(
+export async function logMenSrog(
   age: string,
   gender: string,
   dateOfBirth: string,
   cache: cache
-): string {
-  const srogKey = logMenSign(age, gender, dateOfBirth, cache);
+): Promise<string> {
+  const srogKey = await logMenSign(age, gender, dateOfBirth, cache);
 
   if (srogKey) {
     const record = cache[`${srogKey}_yearsElements_combined_4`]
       ? cache[`${srogKey}_yearsElements_combined_4`]
-      : data.yearsElements.offsetSearch(
+      : await data.yearsElements.offsetSearch(
           { query: srogKey, range: "combined" },
           4
         );

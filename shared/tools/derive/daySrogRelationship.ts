@@ -1,16 +1,19 @@
-import * as data from "../../data";
+import * as data from "../../../db/definitions";
 import { cache } from ".";
 import { dayLifeForce } from ".";
 
-export function daySrogRelationship(key: string[], cache: cache) {
-  const srogRelationshipKey = `${dayLifeForce(key[0], cache)}${dayLifeForce(
-    key[1],
+export async function daySrogRelationship(
+  key: string[],
+  cache: cache
+): Promise<string> {
+  const srogRelationshipKey = `${await dayLifeForce(
+    key[0],
     cache
-  )}`;
+  )}${await dayLifeForce(key[1], cache)}`;
 
   const record = cache[`${srogRelationshipKey}_relationships_elemCombo`]
     ? cache[`${srogRelationshipKey}_relationships_elemCombo`]
-    : data.relationships.search({
+    : await data.relationships.search({
         query: srogRelationshipKey,
         range: "elemCombo",
       });

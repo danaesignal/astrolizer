@@ -1,16 +1,19 @@
-import * as data from "../../data";
+import * as data from "../../../db/definitions";
 import { cache } from ".";
 import { monthPower } from ".";
 
-export function monthWangRelationship(key: string[], cache: cache) {
-  const wangRelationshipKey = `${monthPower(key[0], cache)}${monthPower(
-    key[1],
+export async function monthWangRelationship(
+  key: string[],
+  cache: cache
+): Promise<string> {
+  const wangRelationshipKey = `${await monthPower(
+    key[0],
     cache
-  )}`;
+  )}${await monthPower(key[1], cache)}`;
 
   const record = cache[`${wangRelationshipKey}_relationships_elemCombo`]
     ? cache[`${wangRelationshipKey}_relationships_elemCombo`]
-    : data.relationships.search({
+    : await data.relationships.search({
         query: wangRelationshipKey,
         range: "elemCombo",
       });

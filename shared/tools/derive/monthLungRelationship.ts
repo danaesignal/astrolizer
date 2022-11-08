@@ -1,16 +1,19 @@
-import * as data from "../../data";
+import * as data from "../../../db/definitions";
 import { cache } from ".";
 import { monthLuck } from ".";
 
-export function monthLungRelationship(key: string[], cache: cache) {
-  const lungRelationshipKey = `${monthLuck(key[0], cache)}${monthLuck(
-    key[1],
+export async function monthLungRelationship(
+  key: string[],
+  cache: cache
+): Promise<string> {
+  const lungRelationshipKey = `${await monthLuck(
+    key[0],
     cache
-  )}`;
+  )}${await monthLuck(key[1], cache)}`;
 
   const record = cache[`${lungRelationshipKey}_relationships_elemCombo`]
     ? cache[`${lungRelationshipKey}_relationships_elemCombo`]
-    : data.relationships.search({
+    : await data.relationships.search({
         query: lungRelationshipKey,
         range: "elemCombo",
       });

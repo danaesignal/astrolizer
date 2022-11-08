@@ -2,7 +2,10 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { Natal, NatalRequest } from "../../shared/tools/buildReport/natal";
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   const body = JSON.parse(req.body);
   const { dateOfBirth, motherYearOfBirth, timeOfBirth } = body;
 
@@ -14,7 +17,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
   try {
     const report = new Natal(reportRequest);
-    const reportJSON = report.generateReport();
+    const reportJSON = await report.generateReport();
     res.status(200).send({
       code: 200,
       message: "Request was successful",

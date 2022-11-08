@@ -1,14 +1,17 @@
-import * as data from "../../data";
+import * as data from "../../../db/definitions";
 import { cache } from ".";
 import { yearSrog } from ".";
 
-export function srogRelationship(key: string[], cache: cache) {
+export async function srogRelationship(
+  key: string[],
+  cache: cache
+): Promise<string> {
   const clientRecord = cache[`${key[0]}_dates_dayDate`]
     ? cache[`${key[0]}_dates_dayDate`]
-    : data.dates.search({ query: key[0], range: "dayDate" });
+    : await data.dates.search({ query: key[0], range: "dayDate" });
   const yearRecord = cache[`${key[1]}_dates_dayDate`]
     ? cache[`${key[1]}_dates_dayDate`]
-    : data.dates.search({ query: key[1], range: "dayDate" });
+    : await data.dates.search({ query: key[1], range: "dayDate" });
 
   if (clientRecord && yearRecord) {
     cache[`${key[0]}_dates_dayDate`] = clientRecord;
@@ -18,7 +21,7 @@ export function srogRelationship(key: string[], cache: cache) {
 
     const record = cache[`${srogRelationshipKey}_relationships_elemCombo`]
       ? cache[`${srogRelationshipKey}_relationships_elemCombo`]
-      : data.relationships.search({
+      : await data.relationships.search({
           query: srogRelationshipKey,
           range: "elemCombo",
         });

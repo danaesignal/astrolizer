@@ -1,11 +1,14 @@
-import * as data from "../../data";
+import * as data from "../../../db/definitions";
 import { cache, lunarDate } from ".";
 
-export function lunarDayCharacter(key: string, cache: cache) {
-  const lunarDay = lunarDate(key, cache);
+export async function lunarDayCharacter(
+  key: string,
+  cache: cache
+): Promise<string> {
+  const lunarDay = await lunarDate(key, cache);
   const record = cache[`${lunarDay}_lunarDays_lunarDay`]
     ? cache[`${lunarDay}_lunarDays_lunarDay`]
-    : data.lunarDays.search({ query: lunarDay, range: "lunarDay" });
+    : await data.lunarDays.search({ query: lunarDay, range: "lunarDay" });
 
   if (record) {
     cache[`${lunarDay}_lunarDays_lunarDay`] = record;

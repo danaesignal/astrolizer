@@ -1,12 +1,15 @@
-import * as data from "../../data";
+import * as data from "../../../db/definitions";
 import { cache, year } from ".";
 
-export function yearLifeForce(key: string, cache: cache) {
-  const yearSign = year(key, cache);
+export async function yearLifeForce(
+  key: string,
+  cache: cache
+): Promise<string> {
+  const yearSign = await year(key, cache);
 
   const record = cache[`${yearSign}_yearsElements_combined`]
     ? cache[`${yearSign}_yearsElements_combined`]
-    : data.yearsElements.search({ query: yearSign, range: "combined" });
+    : await data.yearsElements.search({ query: yearSign, range: "combined" });
 
   if (record) {
     cache[`${yearSign}_yearsElements_combined`] = record;

@@ -1,12 +1,12 @@
-import * as data from "../../data";
+import * as data from "../../../db/definitions";
 import { cache, month } from ".";
 
-export function monthLuck(key: string, cache: cache) {
-  const monthSign = month(key, cache);
+export async function monthLuck(key: string, cache: cache): Promise<string> {
+  const monthSign = await month(key, cache);
 
   const record = cache[`${monthSign}_yearsElements_combined`]
     ? cache[`${monthSign}_yearsElements_combined`]
-    : data.yearsElements.search({ query: monthSign, range: "combined" });
+    : await data.yearsElements.search({ query: monthSign, range: "combined" });
 
   if (record) {
     cache[`${monthSign}_yearsElements_combined`] = record;
