@@ -14,9 +14,8 @@ export async function lmSrogRelationship(
         query: keyOne,
         range: "combined",
       });
-
   if (recordOne) {
-    const keyTwo = yearSrog(dateOfBirth, cache);
+    const keyTwo = await yearSrog(dateOfBirth, cache);
     const resultOne = recordOne.srog;
 
     const recordTwo = cache[`${keyTwo + resultOne}_relationships_elemCombo`]
@@ -25,7 +24,6 @@ export async function lmSrogRelationship(
           query: `${keyTwo + resultOne}`,
           range: `elemCombo`,
         });
-
     if (recordTwo) {
       cache[`${keyTwo + resultOne}_relationships_elemCombo`] = recordTwo;
       return `${resultOne} ${recordTwo.elemDeu}`;

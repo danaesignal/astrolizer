@@ -44,12 +44,11 @@ export class Dataset<T extends { [key: string]: string }> {
     const data = await this.read();
     let result: T | undefined;
 
-    const initialResult: T | undefined = await this.search(request);
+    const initialResult: T | undefined = await this.search(request, data);
 
     if (initialResult) {
       const index = data.indexOf(initialResult);
       let offsetIndex = offset + index;
-
       while (offsetIndex >= data.length) {
         offsetIndex = offsetIndex - data.length;
       }
@@ -57,7 +56,6 @@ export class Dataset<T extends { [key: string]: string }> {
       while (offsetIndex < 0) {
         offsetIndex = offsetIndex + data.length;
       }
-
       result = data[offsetIndex];
     }
 

@@ -3,10 +3,12 @@ import { cache, yearBapPar, yearLung } from ".";
 
 export async function parkhaLungRelationship(
   dateOfBirth: string,
+  age: string,
+  gender: string,
   cache: cache
 ): Promise<string> {
-  const lung = yearLung(dateOfBirth, cache);
-  const bapPar = await yearBapPar(dateOfBirth, cache);
+  const lung = await yearLung(dateOfBirth, cache);
+  const bapPar = await yearBapPar(age, gender, cache);
   const recordOne = cache[`${bapPar}_birthParkha_kye-Parkha`]
     ? cache[`${bapPar}_birthParkha_kye-Parkha`]
     : await data.birthParkha.search({ query: bapPar, range: "kye-Parkha" });

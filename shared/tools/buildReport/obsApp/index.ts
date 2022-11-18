@@ -36,6 +36,12 @@ export class ObsApp {
       gender,
     } = this.input;
     const age = derive.age([dateOfBirth, calcDate]);
+    const birthYear = dateOfBirth.slice(0, 4);
+    const count = (
+      parseInt(birthYear) -
+      parseInt(motherYearOfBirth) +
+      1
+    ).toString();
 
     sectionOne.push(
       { label: "DoB", content: dateOfBirth },
@@ -55,13 +61,13 @@ export class ObsApp {
       { label: "Age", content: age },
       { label: "Month", content: await derive.month(dateOfBirth, cache) },
       { label: "KyeMe", content: await derive.yearKyeMe(dateOfBirth, cache) },
-      { label: "KyePar", content: await derive.kyePar(timeOfBirth, cache) },
+      { label: "KyePar", content: await derive.kyePar(count, cache) },
       { label: "Day", content: await derive.day(dateOfBirth, cache) },
       {
         label: "BapMe",
         content: await derive.yearBapMe(dateOfBirth, age, gender, cache),
       },
-      { label: "BapPar", content: await derive.yearBapPar(dateOfBirth, cache) },
+      { label: "BapPar", content: await derive.yearBapPar(age, gender, cache) },
       {
         label: "Hour",
         content: await derive.hour([timeOfBirth, dateOfBirth], cache),
@@ -81,7 +87,7 @@ export class ObsApp {
       },
       {
         label: "Parkha Sign",
-        content: await derive.yearBapPar(dateOfBirth, cache),
+        content: await derive.yearBapPar(age, gender, cache),
       },
       {
         label: "Dutsod Sign",
@@ -124,7 +130,12 @@ export class ObsApp {
       },
       {
         label: "Parkha Srog Relationship",
-        content: await derive.parkhaSrogRelationship(dateOfBirth, cache),
+        content: await derive.parkhaSrogRelationship(
+          dateOfBirth,
+          age,
+          gender,
+          cache
+        ),
       },
       {
         label: "Dargud Srog",
@@ -171,7 +182,12 @@ export class ObsApp {
       },
       {
         label: "Parkha Lue Relationship",
-        content: await derive.parkhaLueRelationship(dateOfBirth, cache),
+        content: await derive.parkhaLueRelationship(
+          dateOfBirth,
+          age,
+          gender,
+          cache
+        ),
       },
       {
         label: "Dargud Lue",
@@ -218,7 +234,12 @@ export class ObsApp {
       },
       {
         label: "Parkha Wang Relationship",
-        content: await derive.parkhaWangRelationship(dateOfBirth, cache),
+        content: await derive.parkhaWangRelationship(
+          dateOfBirth,
+          age,
+          gender,
+          cache
+        ),
       },
       {
         label: "Dargud Wang",
@@ -265,7 +286,12 @@ export class ObsApp {
       },
       {
         label: "Parkha Lung Relationship",
-        content: await derive.parkhaLungRelationship(dateOfBirth, cache),
+        content: await derive.parkhaLungRelationship(
+          dateOfBirth,
+          age,
+          gender,
+          cache
+        ),
       },
       {
         label: "Dargud Lung",

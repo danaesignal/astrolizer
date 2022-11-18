@@ -16,7 +16,7 @@ export async function lmWangRelationship(
       });
 
   if (recordOne) {
-    const keyTwo = yearWang(dateOfBirth, cache);
+    const keyTwo = await yearWang(dateOfBirth, cache);
     const resultOne = recordOne.wang;
 
     const recordTwo = cache[`${keyTwo + resultOne}_relationships_elemCombo`]

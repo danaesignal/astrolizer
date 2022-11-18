@@ -1,14 +1,23 @@
 import * as data from "../../../db/definitions";
 import { cache } from ".";
 
-export async function yearBapPar(key: string, cache: cache): Promise<string> {
-  const bapParKey = (parseInt(key.slice(0, 4)) % 8).toString();
-  const record = cache[`${key}_birthParkha_count`]
-    ? cache[`${key}_birthParkha_count`]
-    : await data.birthParkha.search({ query: bapParKey, range: "count" });
-
+export async function yearBapPar(
+  age: string,
+  gender: string,
+  cache: cache
+): Promise<string> {
+  const key = gender === "male" ? "Li" : "Kham";
+  const parsedAge = parseInt(age) - 1;
+  const offset = gender === "male" ? -1 * parsedAge : parsedAge;
+  console.log(offset);
+  const record = cache[`${key}_birthParkha_kye-Parkha_${offset.toString()}`]
+    ? cache[`${key}_birthParkha_kye-Parkha_${offset.toString()}`]
+    : await data.birthParkha.offsetSearch(
+        { query: key, range: "kye-Parkha" },
+        offset
+      );
   if (record) {
-    cache[`${key}_birthParkha_count`] = record;
+    cache[`${key}_birthParkha_kye-Parkha_${offset.toString()}`] = record;
     return record["kye-Parkha"];
   } else {
     throw new Error(

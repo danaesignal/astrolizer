@@ -16,7 +16,7 @@ export async function lmLungRelationship(
       });
 
   if (recordOne) {
-    const keyTwo = yearLung(dateOfBirth, cache);
+    const keyTwo = await yearLung(dateOfBirth, cache);
     const resultOne = recordOne.lung;
 
     const recordTwo = cache[`${keyTwo + resultOne}_relationships_elemCombo`]

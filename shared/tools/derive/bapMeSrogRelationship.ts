@@ -8,7 +8,7 @@ export async function bapMeSrogRelationship(
   cache: cache
 ): Promise<string> {
   const yearElement = await yearSrog(dateOfBirth, cache);
-  const bapMeEle = bapMeElement(dateOfBirth, age, gender, cache);
+  const bapMeEle = await bapMeElement(dateOfBirth, age, gender, cache);
 
   const record = cache[`${yearElement + bapMeEle}_relationships_combined`]
     ? cache[`${yearElement + bapMeEle}_relationships_combined`]

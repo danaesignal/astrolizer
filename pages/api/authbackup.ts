@@ -9,6 +9,12 @@ export default async function handler(
 ) {
   try {
     // Process the login and return a JWT if successful
+    const prospectiveUpsert: upsertRequest<users> = {
+      record: { user: "danae josephine williams" },
+      position: { query: "dj", range: "user" },
+    };
+    await db.upsert(prospectiveUpsert);
+    const data = await db.findAll();
 
     res.status(200).send({
       code: 200,

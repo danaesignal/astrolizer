@@ -28,12 +28,14 @@ export default async function handler(
   try {
     const report = new ObsApp(reportRequest);
     const reportJSON = await report.generateReport();
+    console.log(reportRequest);
     res.status(200).send({
       code: 200,
       message: "Request was successful",
       payload: reportJSON,
     });
-  } catch {
+  } catch (err) {
+    console.log(err);
     res.status(400).send({
       code: 400,
       message:
