@@ -1,10 +1,12 @@
 import type { NextPage } from "next";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "../shared/styles/styles.module.css";
 import { Navbar, pages } from "../components/Navbar";
 import { ObsAppModal } from "../components/ObsAppModal";
 import { LoadingSpinner } from "../components/LoadingSpinner";
 import { ObsAppGrid } from "../components/ObsAppGrid";
+import { SignInPrompt } from "../components/SignInPrompt";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 type args = {
   method: string;
@@ -21,6 +23,7 @@ export enum dataKeys {
 }
 
 const ObsApp: NextPage = () => {
+  const { data: session } = useSession();
   const [data, setData] = useState();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -84,10 +87,18 @@ const ObsApp: NextPage = () => {
     setLoading(false);
   };
 
+  if (!session)
+    return (
+      <div>
+        <Navbar selected={pages.obsApp} />
+        <SignInPrompt />
+      </div>
+    );
+
   if (!data && !loading)
     return (
       <div className={styles.container}>
-        <Navbar selected={pages.obsapp} />
+        <Navbar selected={pages.obsApp} />
         <div className={styles.modalContainer}>
           <ObsAppModal formData={formData} handleChange={handleChange} />
           <div className={styles.buttonContainer}>
@@ -104,7 +115,7 @@ const ObsApp: NextPage = () => {
   if (data) {
     return (
       <div className={styles.container}>
-        <Navbar selected={pages.obsapp} />
+        <Navbar selected={pages.obsApp} />
         <main className={styles.main}>
           <ObsAppGrid
             formData={formData}
@@ -125,7 +136,7 @@ const ObsApp: NextPage = () => {
   }
   return (
     <div>
-      <Navbar selected={pages.obsapp} />
+      <Navbar selected={pages.obsApp} />
       <LoadingSpinner />
     </div>
   );

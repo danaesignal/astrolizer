@@ -5,6 +5,8 @@ import { Navbar, pages } from "../components/Navbar";
 import { NatalModal } from "../components/NatalModal";
 import { LoadingSpinner } from "../components/LoadingSpinner";
 import { NatalGrid } from "../components/NatalGrid";
+import { SignInPrompt } from "../components/SignInPrompt";
+import { useSession } from "next-auth/react";
 
 type args = {
   method: string;
@@ -18,6 +20,7 @@ export enum dataKeys {
 }
 
 const Natal: NextPage = () => {
+  const { data: session } = useSession();
   const [data, setData] = useState();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -68,6 +71,14 @@ const Natal: NextPage = () => {
     }
     setLoading(false);
   };
+
+  if (!session)
+    return (
+      <div>
+        <Navbar selected={pages.obsApp} />
+        <SignInPrompt />
+      </div>
+    );
 
   if (!data && !loading)
     return (

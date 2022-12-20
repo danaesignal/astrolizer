@@ -6,6 +6,8 @@ import { OperatorDayCalcModal } from "../components/OperatorDayCalcModal";
 import { LoadingSpinner } from "../components/LoadingSpinner";
 import { OperatorDayCalcGrid } from "../components/OperatorDayCalcGrid";
 import { NatalGrid } from "../components/NatalGrid";
+import { SignInPrompt } from "../components/SignInPrompt";
+import { useSession } from "next-auth/react";
 
 type args = {
   method: string;
@@ -21,6 +23,7 @@ export enum dataKeys {
 }
 
 const DayCalc: NextPage = () => {
+  const { data: session } = useSession();
   const [data, setData] = useState();
   const [calcData, setCalcData] = useState();
   const [loading, setLoading] = useState(false);
@@ -82,10 +85,18 @@ const DayCalc: NextPage = () => {
     setLoading(false);
   };
 
+  if (!session)
+    return (
+      <div>
+        <Navbar selected={pages.obsApp} />
+        <SignInPrompt />
+      </div>
+    );
+
   if (!data && !calcData && !loading)
     return (
       <div className={styles.container}>
-        <Navbar selected={pages.daycalc} />
+        <Navbar selected={pages.opDayCalc} />
         <div className={styles.modalContainer}>
           <OperatorDayCalcModal
             formData={formData}
@@ -105,7 +116,7 @@ const DayCalc: NextPage = () => {
   if (data && calcData) {
     return (
       <div className={styles.container}>
-        <Navbar selected={pages.daycalc} />
+        <Navbar selected={pages.opDayCalc} />
         <main className={styles.main}>
           <div className={styles.gridDisplay}>
             <div className={styles.gridBox}>
@@ -137,7 +148,7 @@ const DayCalc: NextPage = () => {
   }
   return (
     <div>
-      <Navbar selected={pages.daycalc} />
+      <Navbar selected={pages.opDayCalc} />
       <LoadingSpinner />
     </div>
   );
