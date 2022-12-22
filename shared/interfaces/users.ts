@@ -1,3 +1,7 @@
 export type users = {
-  user: string;
+  uid: string;
+  username: string;
+  password: string;
+  displayName: string;
+  role: string;
 };
