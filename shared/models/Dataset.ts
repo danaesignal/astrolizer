@@ -15,13 +15,24 @@ export class Dataset<T extends { [key: string]: string }> {
     });
   }
 
-  private write(data: T[]): Promise<boolean> {
+  private write(data: T[], options?: { flag: string }): Promise<boolean> {
+    const opt = options ? options : {};
     return new Promise((resolve, reject) => {
-      writeFile(this.path, JSON.stringify(data), (err) => {
-        if (err) return reject(false);
+      writeFile(this.path, JSON.stringify(data), opt, (err) => {
+        if (err) {
+          return resolve(false);
+        }
         return resolve(true);
       });
     });
+  }
+
+  async initialize(data: T[]): Promise<boolean> {
+    const didWrite = await this.write(data, { flag: "wx" });
+    if (didWrite) {
+      console.log("Initializing DB...");
+    }
+    return await true;
   }
 
   async search(
@@ -87,6 +98,6 @@ export class Dataset<T extends { [key: string]: string }> {
       }
     }
 
-    return await this.write(data);
+    return await this.write(data, { flag: "w" });
   }
 }

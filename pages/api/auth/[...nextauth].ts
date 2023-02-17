@@ -1,5 +1,6 @@
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { Authenticate } from "../../../shared/tools/authenticate";
 
 export const authOptions = {
   providers: [
@@ -11,33 +12,25 @@ export const authOptions = {
       },
       async authorize(credentials, req) {
         // Add logic here to look up the user from the credentials supplied
-        const userOne = {
-          id: "1",
-          userName: "admin",
-          name: "Admin",
-          role: "admin",
-        };
-        const userTwo = {
-          id: "2",
-          userName: "client",
-          name: "Client",
-          role: "client",
-        };
 
-        const user =
-          credentials?.username === "admin"
-            ? userOne
-            : credentials?.username === "client"
-            ? userTwo
-            : null;
+        const username = credentials?.username;
+        const password = credentials?.password;
+
+        const auth = new Authenticate({ username, password });
+
+        const user = await auth.retrieveUser();
+
         if (user) {
-          // Any object returned will be saved in `user` property of the JWT
-          return user;
+          return {
+            id: user.uid,
+            userName: user.username,
+            name: user.displayName,
+            role: user.role,
+          };
         } else {
           // If you return null then an error will be displayed advising the user to check their details.
-          return null;
-
           // You can also Reject this callback with an Error thus the user will be sent to the error page with the error message as a query parameter
+          return null;
         }
       },
     }),

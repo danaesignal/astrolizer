@@ -9,7 +9,6 @@ export async function yearBapPar(
   const key = gender === "male" ? "Li" : "Kham";
   const parsedAge = parseInt(age) - 1;
   const offset = gender === "male" ? -1 * parsedAge : parsedAge;
-  console.log(offset);
   const record = cache[`${key}_birthParkha_kye-Parkha_${offset.toString()}`]
     ? cache[`${key}_birthParkha_kye-Parkha_${offset.toString()}`]
     : await data.birthParkha.offsetSearch(
