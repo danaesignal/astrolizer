@@ -31,7 +31,7 @@ export const Navbar: NextPage<Props> = (props) => {
           <div className={obsAppStyles}>ObsApp</div>
         </Link>
 
-        {session?.user.role === "admin" && (
+        {session && session.user.role !== "client" && (
           <Link href="/natal">
             <div className={natalStyles}>Natal</div>
           </Link>
@@ -39,11 +39,12 @@ export const Navbar: NextPage<Props> = (props) => {
 
         <Link href="/daycalc">
           <div className={dayCalcStyles}>
-            {session?.user.role === "admin" ? "Client " : null}DayCalc
+            {session && session.user.role !== "client" ? "Client " : null}
+            DayCalc
           </div>
         </Link>
 
-        {session?.user.role === "admin" && (
+        {session && session.user.role !== "client" && (
           <Link href="/opdaycalc">
             <div className={opDayCalcStyles}>Operator DayCalc</div>
           </Link>

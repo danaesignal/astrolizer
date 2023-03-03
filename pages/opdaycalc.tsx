@@ -85,10 +85,10 @@ const DayCalc: NextPage = () => {
     setLoading(false);
   };
 
-  if (!session)
+  if (!session || session.user.role === "client")
     return (
       <div>
-        <Navbar selected={pages.obsApp} />
+        <Navbar selected={pages.opDayCalc} />
         <SignInPrompt />
       </div>
     );

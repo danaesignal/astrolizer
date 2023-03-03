@@ -72,10 +72,10 @@ const Natal: NextPage = () => {
     setLoading(false);
   };
 
-  if (!session)
+  if (!session || session.user.role === "client")
     return (
       <div>
-        <Navbar selected={pages.obsApp} />
+        <Navbar selected={pages.natal} />
         <SignInPrompt />
       </div>
     );
