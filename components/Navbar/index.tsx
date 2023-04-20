@@ -12,6 +12,7 @@ export enum pages {
   natal = "NATAL",
   dayCalc = "DAYCALC",
   opDayCalc = "OPDAYCALC",
+  admin = "ADMIN",
 }
 
 export const Navbar: NextPage<Props> = (props) => {

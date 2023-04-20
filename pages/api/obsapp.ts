@@ -1,11 +1,18 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import { ObsApp, ObsAppRequest } from "../../shared/tools/buildReport/obsApp";
+import { getToken } from "next-auth/jwt";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  const token = await getToken({ req });
+  if (token) {
+    console.log("yo" + " " + JSON.stringify(token, null, 2));
+  } else {
+    console.log("we got problems chief");
+  }
   const body = JSON.parse(req.body);
   const {
     dateOfBirth,

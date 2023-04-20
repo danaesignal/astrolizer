@@ -113,6 +113,7 @@ const ObsApp: NextPage = () => {
       </div>
     );
   if (data) {
+    console.log(session);
     return (
       <div className={styles.container}>
         <Navbar selected={pages.obsApp} />

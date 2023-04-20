@@ -123,6 +123,13 @@
   /* align-items: flex-start; */
 }
 
+.displayElementPW {
+  width: 22.5rem;
+  display: flex;
+  flex-shrink: 0;
+  /* align-items: flex-start; */
+}
+
 .labelElement {
   min-width: 7.5rem;
   display: flex;
@@ -161,6 +168,13 @@
 .label {
   padding: 2px 5px;
   min-width: 7.5rem;
+  flex-grow: 1;
+  font-weight: 600;
+}
+
+.labelPW {
+  padding: 2px 5px;
+  width: 50%;
   flex-grow: 1;
   font-weight: 600;
 }
