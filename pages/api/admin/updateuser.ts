@@ -21,7 +21,6 @@ export default async function handler(
             payload: {},
           });
         }
-        console.log(username, oldPassword);
         const auth = new Authenticate({ username, password: oldPassword });
         let user = await auth.retrieveUser();
 
@@ -54,7 +53,6 @@ export default async function handler(
       });
     }
   } catch (err) {
-    console.log(err);
     let message =
       "Malformed or improper request. Please check your input and try again.";
     if (err instanceof Error) message = err.message;

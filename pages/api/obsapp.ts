@@ -7,12 +7,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const token = await getToken({ req });
-  if (token) {
-    console.log("yo" + " " + JSON.stringify(token, null, 2));
-  } else {
-    console.log("we got problems chief");
-  }
   const body = JSON.parse(req.body);
   const {
     dateOfBirth,
@@ -35,14 +29,12 @@ export default async function handler(
   try {
     const report = new ObsApp(reportRequest);
     const reportJSON = await report.generateReport();
-    console.log(reportRequest);
     res.status(200).send({
       code: 200,
       message: "Request was successful",
       payload: reportJSON,
     });
   } catch (err) {
-    console.log(err);
     res.status(400).send({
       code: 400,
       message:

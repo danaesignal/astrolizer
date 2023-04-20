@@ -63,22 +63,19 @@ const Admin: NextPage = () => {
     if (json.code === 200) {
       alert(`User "${json.payload.username}" password updated successfully.`);
       resetFormData();
-      console.log(json.payload);
     } else {
       alert(`${json.message}`);
-      console.log(json.payload);
     }
     setLoading(false);
   };
 
-  if (!session)
+  if (!session || session.user.role !== "admin")
     return (
       <div>
         <Navbar selected={pages.admin} />
         <SignInPrompt />
       </div>
     );
-
   if (!loading)
     return (
       <div className={styles.container}>

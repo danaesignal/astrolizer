@@ -25,6 +25,8 @@ export const Navbar: NextPage<Props> = (props) => {
     selected == pages.dayCalc ? styles.active : styles.inactive;
   const opDayCalcStyles =
     selected == pages.opDayCalc ? styles.active : styles.inactive;
+  const adminPageStyles =
+    selected == pages.admin ? styles.active : styles.inactive;
   return (
     <div className={styles.navbar}>
       <div className={styles.navigation}>
@@ -48,6 +50,11 @@ export const Navbar: NextPage<Props> = (props) => {
         {session && session.user.role !== "client" && (
           <Link href="/opdaycalc">
             <div className={opDayCalcStyles}>Operator DayCalc</div>
+          </Link>
+        )}
+        {session && session.user.role === "admin" && (
+          <Link href="/admin">
+            <div className={adminPageStyles}>Admin Panel</div>
           </Link>
         )}
       </div>
