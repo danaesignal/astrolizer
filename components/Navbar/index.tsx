@@ -4,7 +4,7 @@ import Link from "next/link";
 import styles from "../../shared/styles/styles.module.css";
 
 interface Props {
-  selected: string;
+  selected?: string;
 }
 
 export enum pages {
