@@ -1,6 +1,9 @@
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { Authenticate } from "../../../shared/tools/authenticate";
+import { JWT } from "next-auth/jwt";
+import { Session, User } from "next-auth";
+import { users } from "../../../shared/interfaces";
 
 export const authOptions = {
   providers: [
@@ -36,13 +39,13 @@ export const authOptions = {
     }),
   ],
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, user }: { token: JWT; user: users }) {
       if (user) {
         token.role = user.role;
       }
       return token;
     },
-    async session({ session, token }) {
+    async session({ session, token }: { session: Session; token: JWT }) {
       if (token) {
         session.user.role = token.role;
       }
