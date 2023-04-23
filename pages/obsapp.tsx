@@ -32,7 +32,7 @@ const ObsApp: NextPage = () => {
     calcDate: "",
     calcTime: "",
     motherYearOfBirth: "",
-    gender: "",
+    gender: "male",
   });
 
   const handleChange = (key: dataKeys, formValue: string): void => {
@@ -58,7 +58,7 @@ const ObsApp: NextPage = () => {
         calcDate: "",
         calcTime: "",
         motherYearOfBirth: "",
-        gender: "",
+        gender: "male",
       });
     }
   };

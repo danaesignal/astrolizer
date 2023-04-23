@@ -27,6 +27,7 @@ export default async function handler(
   };
 
   try {
+    console.log(reportRequest);
     const report = new ObsApp(reportRequest);
     const reportJSON = await report.generateReport();
     res.status(200).send({
@@ -35,6 +36,7 @@ export default async function handler(
       payload: reportJSON,
     });
   } catch (err) {
+    console.log(err);
     res.status(400).send({
       code: 400,
       message:
